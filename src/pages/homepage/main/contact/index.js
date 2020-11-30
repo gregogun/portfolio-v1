@@ -24,11 +24,11 @@ const Contact = () => {
           <FormLabel fontSize="18px">NAME</FormLabel>
           <Input w="100%" h="48px" rounded="0" mb="16px" type="text" />
         </FormControl>
-        <FormControl id="name">
+        <FormControl id="email">
           <FormLabel fontSize="18px">EMAIL ADDRESS</FormLabel>
           <Input w="100%" h="48px" rounded="0" mb="16px" type="text" />
         </FormControl>
-        <FormControl id="name">
+        <FormControl id="message">
           <FormLabel fontSize="18px">MESSAGE</FormLabel>
           <Input w="100%" h="128px" rounded="0" mb="16px" type="text" />
         </FormControl>
