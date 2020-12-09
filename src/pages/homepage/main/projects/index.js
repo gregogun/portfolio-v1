@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import useTypography from "../../../../components/useTypography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
@@ -22,24 +22,76 @@ const Projects = () => {
         w="328px"
         h="328px"
         mx="auto"
-        mb="64px"
+        mb="16px"
         display="grid"
         placeItems="center"
       >
         <Text>Content</Text>
       </Box>
+      <Button
+        display="block"
+        m="auto"
+        variant="outline"
+        w="328px"
+        h="64px"
+        rounded="0"
+        color={colorDark}
+        colorScheme="default.light"
+        my="8px"
+      >
+        LIVE SITE
+      </Button>
+      <Button
+        display="block"
+        m="auto"
+        variant="outline"
+        w="328px"
+        h="64px"
+        rounded="0"
+        color={colorDark}
+        colorScheme="default.light"
+        my="8px"
+      >
+        GITHUB REPO
+      </Button>
       <Box
         border="solid 2px"
         borderColor={colorDark}
         w="328px"
         h="328px"
         mx="auto"
-        mb="64px"
+        mb="16px"
         display="grid"
         placeItems="center"
       >
         <Text>Content</Text>
       </Box>
+      <Button
+        display="block"
+        m="auto"
+        variant="outline"
+        w="328px"
+        h="64px"
+        rounded="0"
+        color={colorDark}
+        colorScheme="default.light"
+        my="8px"
+      >
+        LIVE SITE
+      </Button>
+      <Button
+        display="block"
+        m="auto"
+        variant="outline"
+        w="328px"
+        h="64px"
+        rounded="0"
+        color={colorDark}
+        colorScheme="default.light"
+        my="8px"
+      >
+        GITHUB REPO
+      </Button>
     </Box>
   );
 };

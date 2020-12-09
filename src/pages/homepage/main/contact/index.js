@@ -22,22 +22,40 @@ const Contact = () => {
       <form action="">
         <FormControl id="name">
           <FormLabel fontSize="18px">NAME</FormLabel>
-          <Input w="100%" h="48px" rounded="0" mb="16px" type="text" />
+          <Input
+            w={{ base: "350px", md: "500px" }}
+            h="48px"
+            rounded="0"
+            mb="16px"
+            type="text"
+          />
         </FormControl>
         <FormControl id="name">
           <FormLabel fontSize="18px">EMAIL ADDRESS</FormLabel>
-          <Input w="100%" h="48px" rounded="0" mb="16px" type="text" />
+          <Input
+            w={{ base: "350px", md: "500px" }}
+            h="48px"
+            rounded="0"
+            mb="16px"
+            type="text"
+          />
         </FormControl>
         <FormControl id="name">
           <FormLabel fontSize="18px">MESSAGE</FormLabel>
-          <Input w="100%" h="128px" rounded="0" mb="16px" type="text" />
+          <Input
+            w={{ base: "350px", md: "500px" }}
+            h="128px"
+            rounded="0"
+            mb="16px"
+            type="text"
+          />
         </FormControl>
         <Button
           bg={colorDark}
           color={colorLight}
           _hover={{ bg: "#333333" }}
           rounded="0"
-          w="100%"
+          w={{ base: "350px", md: "500px" }}
           h="64px"
         >
           Submit
