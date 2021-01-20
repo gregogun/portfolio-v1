@@ -39,11 +39,23 @@ const customTheme = {
         400: "#7b4ecb",
         500: "#6234b1",
       },
+      secondary: {
+        50: "#defef6",
+        100: "#b8f5e2",
+        200: "#90edcc",
+        300: "#65e4b5",
+        400: "#3cdd9a",
+        500: "#22c38c",
+        600: "#169875",
+        700: "#0a6c5a",
+        800: "#00423b",
+        900: "#001812",
+      },
     },
   },
   fonts: {
     heading: "Poppins, sans-serif",
-    body: "Space Mono, sans-serif",
+    body: "Roboto Mono, monospace",
   },
 };
 

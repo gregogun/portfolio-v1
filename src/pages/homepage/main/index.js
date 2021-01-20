@@ -9,18 +9,17 @@ import { Router } from "@reach/router";
 const Main = () => {
   return (
     <Box
+      minH={{ base: "540px" }}
       as="main"
-      w={{ base: "100vw", md: "80vw" }}
+      w={{ base: "100vw", md: "90vw", lg: "80vw" }}
       px="24px"
-      py="180px"
+      py="128px"
       m="auto"
     >
-      <Router>
-        <Hero path="/" />
-        <About path="/about" />
-        <Projects path="/projects" />
-        <Contact path="/contact" />
-      </Router>
+      <Hero />
+      <About />
+      <Projects />
+      <Contact />
     </Box>
   );
 };

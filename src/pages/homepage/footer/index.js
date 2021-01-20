@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <Box w="100%">
-      <Heading color={colorDark} textAlign="center">
+      <Heading h={{ base: "120px" }} color={colorDark} textAlign="center">
         Footer
       </Heading>
     </Box>

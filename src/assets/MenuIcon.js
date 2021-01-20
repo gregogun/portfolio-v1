@@ -1,15 +1,17 @@
 import React from "react";
-import { Box, Stack, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, useColorMode } from "@chakra-ui/react";
 
 const MenuIcon = () => {
   const { colorMode } = useColorMode();
   return (
-    <Stack
+    <Flex
+      // bg="green.200"
       display={["flex", "", "", "none"]}
+      justify="space-between"
       direction="column"
       align="center"
-      w="60px"
-      h="60px"
+      w="48px"
+      h="48px"
       p="16px"
       // bg="red.200"
     >
@@ -24,7 +26,7 @@ const MenuIcon = () => {
         h="4px"
         bg={colorMode === "light" ? "default.dark" : "default.light"}
       />
-    </Stack>
+    </Flex>
   );
 };
 
