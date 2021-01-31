@@ -1,73 +1,58 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
-import useTypography from "../../../../components/useTypography";
-import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
+import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import React, { forwardRef, useEffect } from "react";
+import { ImageProfile } from "../../../../assets/images";
+import { Line, SectionHeader } from "../../../../components/layout";
+import { Heading2 } from "../../../../components/typography";
 
-const About = () => {
-  const { Heading2 } = useTypography();
-  const { colorDark } = useColorSwitcher();
-
-  const Line = () => (
-    <Box
-      display={{ base: "block", lg: "none" }}
-      bg={colorDark}
-      h="2px"
-      w="168px"
-    />
-  );
+const About = forwardRef(({ ...props }, ref) => {
+  const greyBg = useColorModeValue("neutral.300", "neutral.500");
+  const lightGreyBg = useColorModeValue("neutral.100", "neutral.700");
 
   return (
-    <Flex
-      w="100%"
-      bg="gray.100"
-      direction={{ base: "column", lg: "row" }}
-      justify="space-between"
-      // align="center"
-      minH="50vh"
-      mb="15vh"
-      as="section"
-      p="24px"
-    >
-      <Box
-        bg="default.dark"
-        w="100%"
-        h="100"
-        display={{ base: "none", xl: "grid" }}
-        placeItems="center"
+    <Box outline="0" ref={ref} tabIndex={-1} {...props} w="100%" as="section">
+      <Box w="100%" mb={{ base: "32px", md: "64px", xl: "128px" }}>
+        <SectionHeader
+          heading={<Heading2>about</Heading2>}
+          sibling={<Line />}
+          mr="16px"
+        />
+      </Box>
+      <Stack
+        align="center"
+        spacing={16}
+        direction={{ base: "column-reverse", xl: "row" }}
+        justify={{ base: "space-between", xl: "space-evenly" }}
       >
-        <Text
-          // bg="blue.200"
-          color="gray.100"
-        >
-          Image
-        </Text>
-      </Box>
-      <Box w="100%" h="100%">
         <Box
-          // bg="gray.200"
-          minH="16px"
-          mb="32px"
+          bg={lightGreyBg}
+          rounded="full"
+          display="grid"
+          placeItems="center"
+          p="16px"
         >
-          <Heading2 sibling={<Line />} mr="16px">
-            about
-          </Heading2>
+          <Box
+            bg={greyBg}
+            rounded="full"
+            display="grid"
+            placeItems="center"
+            p="16px"
+          >
+            <ImageProfile />
+          </Box>
         </Box>
-        <Text
-          // bg="gray.300"
-          w="80%"
-        >
-          Praesent sed est dignissim, vehicula dolor eu, aliquet augue.
-          Curabitur eu felis at eros volutpat sollicitudin interdum euismod
-          sapien. In lorem sapien, posuere vitae ex maximus, accumsan elementum
-          eros. Cras fermentum sed libero eget accumsan. In condimentum magna et
-          turpis euismod aliquam eget nec metus. Maecenas efficitur est sed
-          lobortis varius. Aenean euismod in est ut scelerisque. Donec egestas
-          tempor leo, quis ornare nibh venenatis eu. Donec justo libero, euismod
-          eget massa nec, feugiat placerat tellus.
-        </Text>
-      </Box>
-    </Flex>
+        <Box p="8px" w={{ base: "100%", xl: "50%" }}>
+          <Text fontSize={{ base: "sm", md: "md", lg: "lg", xl: "xl" }}>
+            Hello! I'm Greg, a junior front-end developer based in Bedford, UK.
+            I love to work on exciting projects that test what I've learnt,
+            whilst being exposed to the power and potential of the ever-evolving
+            technologies around us. Whilst most of the projects I've worked on
+            have been to improve my skills, I also believe in working on
+            projects that push social change.
+          </Text>
+        </Box>
+      </Stack>
+    </Box>
   );
-};
+});
 
 export default About;

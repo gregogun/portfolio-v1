@@ -1,27 +1,8 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Heading,
-  Icon,
-  IconButton,
-  Text,
-  useColorMode,
-} from "@chakra-ui/react";
-import { FaArrowDown } from "react-icons/fa";
-
-const BigText = ({ color, children }) => {
-  return (
-    <Text
-      color={color}
-      fontFamily="Poppins, sans-serif"
-      fontSize={{ base: "32px", md: "48px" }}
-      fontWeight="bold"
-    >
-      {children}
-    </Text>
-  );
-};
+import { Box, Text, useColorModeValue } from "@chakra-ui/react";
+import { PrimaryButton } from "../../../../components/button";
+import { Link as ScrollLink } from "react-scroll";
+import { Heading1, Heading3 } from "../../../../components/typography";
 
 const IntroText = ({ color, children }) => {
   return (
@@ -36,35 +17,12 @@ const IntroText = ({ color, children }) => {
   );
 };
 
-const Heading1 = ({ color, children }) => {
-  return (
-    <Heading
-      // mb="24px"
-      color={color}
-      as="h1"
-      fontSize={{ base: "3.5em", sm: "4em", md: "5em", lg: "6em" }}
-    >
-      {children}
-    </Heading>
-  );
-};
+const Hero = ({ handleClick, ...props }) => {
+  const secondary = useColorModeValue("purple.500", "teal.200");
 
-const ArrowIcon = (props) => {
   return (
-    <IconButton
-      display="block"
-      mt="290px"
-      mx="auto"
-      icon={<Icon {...props} w="28px" h="28px" as={FaArrowDown} />}
-    />
-  );
-};
-
-const Hero = () => {
-  return (
-    <Box as="section" mb={{ base: "50vh", md: "60vh" }}>
+    <Box {...props} as="section">
       <Box
-        // bg="gray.200"
         w={{ base: "100%", lg: "70%" }}
         px={{ base: "2px", md: "4px" }}
         mb="16px"
@@ -72,7 +30,6 @@ const Hero = () => {
         <IntroText>Hello, I'm</IntroText>
       </Box>
       <Box
-        // bg="gray.200"
         w={{ base: "100%", lg: "70%" }}
         minH={{ base: "48px", md: "80px" }}
         py={{ base: "8px", lg: "16px" }}
@@ -81,33 +38,30 @@ const Hero = () => {
         <Heading1>Greg Ogun</Heading1>
       </Box>
       <Box
-        // bg="gray.200"
         w={{ base: "100%", lg: "70%" }}
         py={{ base: "0", lg: "16px" }}
         px={{ base: "2px", lg: "4px" }}
       >
-        <BigText bg="gray.200" color="purple.500">
-          I build for the web.
-        </BigText>
+        <Heading3 big={true} bg="gray.200" color={secondary}>
+          Junior Front-End Developer
+        </Heading3>
       </Box>
-      <Box my="16px">
-        <Text fontWeight="bold">
-          I’m a front-end developer with a passion for designing and building
-          user-centric and inclusive experiences on the web.
+      <Box w={{ base: "90%", md: "75%", lg: "50%" }} my="16px">
+        <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} fontWeight="bold">
+          I’m a curiousity-driven coder with a passion for designing and
+          building user-centric, inclusive experiences on the web.
         </Text>
       </Box>
       <Box my={{ base: "32px" }}>
-        <Button
-          // onClick={toggleColorMode}
-          rounded="0"
-          border="3px solid"
-          color="purple.500"
-          colorScheme="purple.500"
-          w={{ base: "188px" }}
-          h={{ base: "56px" }}
+        <ScrollLink
+          to="about"
+          onClick={handleClick}
+          smooth={true}
+          duration={750}
+          delay={100}
         >
-          GET IN TOUCH
-        </Button>
+          <PrimaryButton theme={secondary}>LEARN MORE</PrimaryButton>
+        </ScrollLink>
       </Box>
     </Box>
   );

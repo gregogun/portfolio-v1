@@ -1,4 +1,4 @@
-import StyledButton from ".";
+import { StyledButton } from ".";
 
 export default {
   title: "Styled Button",
@@ -10,9 +10,9 @@ const Template = (args) => <StyledButton {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   w: "188px",
-  size: "md",
-  bgColor: "default.dark",
-  textColor: "default.light",
+  size: "lg",
+  bg: "default.dark",
+  color: "default.light",
   hoverColor: "neutral.700",
   children: "Primary",
 };
@@ -20,11 +20,10 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   w: "188px",
-  size: "md",
-  variant: "ghost",
+  size: "lg",
   border: "2px solid",
-  bgColor: "default.light",
-  textColor: "default.dark",
+  bg: "default.light",
+  color: "default.dark",
   hoverColor: "gray.100",
-  children: "Primary",
+  children: "Secondary",
 };

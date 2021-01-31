@@ -1,62 +1,55 @@
 import React from "react";
-import { Box, Flex, Text, Button } from "@chakra-ui/react";
-import useTypography from "../../../../components/useTypography";
-import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
+import { Link as ReachLink } from "@reach/router";
+import { Box, Stack, Link, forwardRef } from "@chakra-ui/react";
+import { ProjectCard, ProjectInfoCard } from "../../../../components/card";
+import { FaArrowLeft } from "react-icons/fa";
+import { Line, SectionHeader } from "../../../../components/layout";
+import { Heading2 } from "../../../../components/typography";
+import projects from "../../../../content/projects";
 
-const Projects = () => {
-  const { Heading2 } = useTypography();
-  const { colorLight, colorDark } = useColorSwitcher();
-
-  const Line = (props) => <Box {...props} bg={colorDark} />;
-
+const BackToMain = () => {
   return (
-    <Box minH="50vh" mb="15vh" as="section">
-      <Flex minH="16px" mb="64px" align="center">
-        <Heading2 sibling={<Line h="2px" w="160px" />} mr="16px">
-          projects
-        </Heading2>
-      </Flex>
-      <Box
-        border="solid 2px"
-        borderColor={colorDark}
-        w="328px"
-        h="328px"
-        mx="auto"
-        mb="16px"
-        display="grid"
-        placeItems="center"
-      >
-        <Text>Content</Text>
-      </Box>
-      <Button
-        display="block"
-        m="auto"
-        variant="outline"
-        w="328px"
-        h="64px"
-        rounded="0"
-        color={colorDark}
-        colorScheme="default.light"
-        my="8px"
-      >
-        LIVE SITE
-      </Button>
-      <Button
-        display="block"
-        m="auto"
-        variant="outline"
-        w="328px"
-        h="64px"
-        rounded="0"
-        color={colorLight}
-        bg="default.dark"
-        _hover={{ bg: "#333" }}
-        my="8px"
-      >
-        GITHUB REPO
-      </Button>
-    </Box>
+    <Stack direction="row" spacing={4} align="center">
+      <FaArrowLeft />
+      <Link as={ReachLink} to="/">
+        Back To Main
+      </Link>
+    </Stack>
   );
 };
+
+const Projects = forwardRef(({ ...props }, ref) => {
+  return (
+    <Box
+      outline="0"
+      ref={ref}
+      tabIndex={-1}
+      minH="50vh"
+      as="section"
+      mx="auto"
+      {...props}
+    >
+      <Box mb="128px">
+        <SectionHeader
+          heading={<Heading2>projects</Heading2>}
+          sibling={<Line />}
+          mr="16px"
+        />
+      </Box>
+      {projects.map((project) => (
+        <Stack
+          key={project.id}
+          align="center"
+          spacing={4}
+          direction={{ base: "column", xl: "row" }}
+          mb="128px"
+        >
+          <ProjectCard media={project.media} />
+          <ProjectInfoCard {...project} />
+        </Stack>
+      ))}
+    </Box>
+  );
+});
 
 export default Projects;

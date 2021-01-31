@@ -1,82 +1,47 @@
-import React from "react";
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  Text,
-} from "@chakra-ui/react";
-import useTypography from "../../../../components/useTypography";
-import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
+import React, { forwardRef } from "react";
+import { Box, Link, Text, useColorModeValue } from "@chakra-ui/react";
+import { Line, SectionHeader } from "../../../../components/layout";
+import { PrimaryButton } from "../../../../components/button";
+import { Heading2 } from "../../../../components/typography";
 
-const Contact = () => {
-  const { Heading2 } = useTypography();
-  const { colorLight, colorDark } = useColorSwitcher();
-
-  const Line = (props) => <Box {...props} bg={colorDark} />;
-
-  const Form = () => {
-    return (
-      <form action="">
-        <FormControl id="name">
-          <FormLabel fontSize="18px">NAME</FormLabel>
-          <Input
-            w={{ base: "350px", md: "500px" }}
-            h="48px"
-            rounded="0"
-            mb="16px"
-            type="text"
-          />
-        </FormControl>
-        <FormControl id="name">
-          <FormLabel fontSize="18px">EMAIL ADDRESS</FormLabel>
-          <Input
-            w={{ base: "350px", md: "500px" }}
-            h="48px"
-            rounded="0"
-            mb="16px"
-            type="text"
-          />
-        </FormControl>
-        <FormControl id="name">
-          <FormLabel fontSize="18px">MESSAGE</FormLabel>
-          <Input
-            w={{ base: "350px", md: "500px" }}
-            h="128px"
-            rounded="0"
-            mb="16px"
-            type="text"
-          />
-        </FormControl>
-        <Button
-          bg={colorDark}
-          color={colorLight}
-          _hover={{ bg: "#333333" }}
-          rounded="0"
-          w={{ base: "350px", md: "500px" }}
-          h="64px"
-        >
-          Submit
-        </Button>
-      </form>
-    );
-  };
+const Contact = forwardRef(({ ...props }, ref) => {
+  const secondary = useColorModeValue("purple.500", "teal.200");
 
   return (
-    <Box minH="50vh" mb="15vh" as="section">
-      <Flex minH="16px" mb="64px" align="center">
-        <Heading2 sibling={<Line h="2px" w="160px" />} mr="16px">
-          contact
-        </Heading2>
-      </Flex>
-      <Box pb="8px" mb="32px" borderBottom="2px" borderColor="neutral.100">
-        <Text>GET IN TOUCH</Text>
+    <Box outline="0" ref={ref} tabIndex={-1} {...props} as="section">
+      <Box mb="128px">
+        <SectionHeader
+          heading={<Heading2>contact</Heading2>}
+          sibling={<Line />}
+          mr="16px"
+        />
       </Box>
-      <Form />
+      <Box
+        mx="auto"
+        w={{ base: "90%", xl: "70%" }}
+        display="grid"
+        placeItems="center"
+      >
+        <Text w="70%" fontSize="xl" mb="32px" align="center">
+          I'm currently looking open to freelance and part-time/full-time job
+          opportunties, so if you like what you've seen please don't hesitate to
+          get in touch!
+        </Text>
+        <Text w="70%" fontSize="xl" mb="64px" align="center">
+          If you have any questions or would just like to say hi, my inbox is
+          always open and I'll endeavour to get back to you as soon as I can.
+        </Text>
+        <PrimaryButton
+          as="a"
+          _hover={{ textDecoration: "none" }}
+          href="mailto:gregogun97@gmail.com"
+          theme={secondary}
+        >
+          GET IN TOUCH
+        </PrimaryButton>
+      </Box>
     </Box>
   );
-};
+});
 
 export default Contact;

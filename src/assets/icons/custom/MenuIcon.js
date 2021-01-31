@@ -5,7 +5,6 @@ const MenuIcon = () => {
   const { colorMode } = useColorMode();
   return (
     <Flex
-      // bg="green.200"
       display={["flex", "", "", "none"]}
       justify="space-between"
       direction="column"
@@ -13,7 +12,6 @@ const MenuIcon = () => {
       w="48px"
       h="48px"
       p="16px"
-      // bg="red.200"
     >
       <Box
         w="36px"

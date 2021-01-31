@@ -1,15 +1,69 @@
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  IconButton,
+  Link,
+  Stack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import useColorSwitcher from "../../../utils/hooks/useColorSwitcher";
+import {
+  IconDev,
+  IconLinkedin,
+  IconTwitch,
+  IconTwitter,
+  IconYoutube,
+  IconGithubAlt,
+} from "../../../assets/icons/imported/IconSocials";
+import { IconGithub } from "../../../assets/icons";
+
+const SocialLink = ({ href, icon, ...props }) => {
+  const { colorLight, colorDark } = useColorSwitcher();
+  return (
+    <Link
+      {...props}
+      href={href}
+      target="_blank"
+      rel="noopener"
+      rel="noreferrer"
+    >
+      <IconButton variant="ghost" _hover={{ variant: "ghost" }} icon={icon} />
+    </Link>
+  );
+};
 
 const Footer = () => {
-  const { colorDark } = useColorSwitcher();
-
   return (
-    <Box w="100%">
-      <Heading h={{ base: "120px" }} color={colorDark} textAlign="center">
-        Footer
-      </Heading>
+    <Box mb="16px" display="grid" placeItems="center">
+      <Stack mb="16px" direction="row" spacing={4}>
+        <SocialLink
+          href="https://www.linkedin.com/in/greg-ogun/"
+          icon={<IconLinkedin />}
+        />
+        <SocialLink
+          href="https://github.com/gregogun"
+          icon={<IconGithubAlt />}
+        />
+        <SocialLink
+          href="https://twitter.com/gregogun"
+          icon={<IconTwitter />}
+        />
+        <SocialLink
+          href="https://www.youtube.com/channel/UCQDUHOvgodaEqjHm9Ihn87w"
+          icon={<IconYoutube />}
+        />
+        <SocialLink
+          href="https://www.twitch.tv/gregogun"
+          icon={<IconTwitch />}
+        />
+        <SocialLink href="https://dev.to/gregogun" icon={<IconDev />} />
+      </Stack>
+      <Box display="grid" placeItems="center">
+        <Link href="https://github.com/gregogun">
+          Designed & Coded by Greg Ogun
+        </Link>
+      </Box>
     </Box>
   );
 };

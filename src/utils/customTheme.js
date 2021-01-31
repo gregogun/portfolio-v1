@@ -1,11 +1,16 @@
-import { theme } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 
-const customTheme = {
-  ...theme,
+const breakpoints = createBreakpoints({
+  xxl: "100em",
+});
+
+const theme = extendTheme({
   styles: {
     global: (props) => ({
-      "html body": {
+      body: {
         overflowX: "hidden",
+        scrollBehavior: "smooth",
         color: props.colorMode === "light" ? "default.dark" : "default.light",
         bg: props.colorMode === "light" ? "#fcfcfc" : "#232323",
         fontFamily: "body",
@@ -13,7 +18,6 @@ const customTheme = {
     }),
   },
   colors: {
-    ...theme.colors,
     default: {
       light: "#FCFCFC",
       dark: "#232323",
@@ -57,6 +61,7 @@ const customTheme = {
     heading: "Poppins, sans-serif",
     body: "Roboto Mono, monospace",
   },
-};
+  breakpoints,
+});
 
-export default customTheme;
+export default theme;
