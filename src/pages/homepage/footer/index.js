@@ -2,7 +2,7 @@ import React from "react";
 import {
   Box,
   Heading,
-  IconButton,
+  Icon,
   Link,
   Stack,
   useColorModeValue,
@@ -22,13 +22,14 @@ const SocialLink = ({ href, icon, ...props }) => {
   const { colorLight, colorDark } = useColorSwitcher();
   return (
     <Link
+      p=".      5em"
       {...props}
       href={href}
       target="_blank"
       rel="noopener"
       rel="noreferrer"
     >
-      <IconButton variant="ghost" _hover={{ variant: "ghost" }} icon={icon} />
+      <Icon as={icon} />
     </Link>
   );
 };
@@ -39,25 +40,16 @@ const Footer = () => {
       <Stack mb="16px" direction="row" spacing={4}>
         <SocialLink
           href="https://www.linkedin.com/in/greg-ogun/"
-          icon={<IconLinkedin />}
+          icon={IconLinkedin}
         />
-        <SocialLink
-          href="https://github.com/gregogun"
-          icon={<IconGithubAlt />}
-        />
-        <SocialLink
-          href="https://twitter.com/gregogun"
-          icon={<IconTwitter />}
-        />
+        <SocialLink href="https://github.com/gregogun" icon={IconGithubAlt} />
+        <SocialLink href="https://twitter.com/gregogun" icon={IconTwitter} />
         <SocialLink
           href="https://www.youtube.com/channel/UCQDUHOvgodaEqjHm9Ihn87w"
-          icon={<IconYoutube />}
+          icon={IconYoutube}
         />
-        <SocialLink
-          href="https://www.twitch.tv/gregogun"
-          icon={<IconTwitch />}
-        />
-        <SocialLink href="https://dev.to/gregogun" icon={<IconDev />} />
+        <SocialLink href="https://www.twitch.tv/gregogun" icon={IconTwitch} />
+        <SocialLink href="https://dev.to/gregogun" icon={IconDev} />
       </Stack>
       <Box display="grid" placeItems="center">
         <Link href="https://github.com/gregogun">

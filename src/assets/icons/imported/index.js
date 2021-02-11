@@ -7,3 +7,5 @@ export { default as IconElectron } from "./IconElectron";
 export { default as IconGithub } from "./IconGithub";
 export { default as IconFigma } from "./IconFigma";
 export { default as IconCat } from "./IconCat";
+export { default as IconInvision } from "./IconInvision";
+export { default as IconAdobe } from "./IconAdobe";

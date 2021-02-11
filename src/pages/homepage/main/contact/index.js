@@ -3,9 +3,11 @@ import { Box, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import { Line, SectionHeader } from "../../../../components/layout";
 import { PrimaryButton } from "../../../../components/button";
 import { Heading2 } from "../../../../components/typography";
+import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const Contact = forwardRef(({ ...props }, ref) => {
   const secondary = useColorModeValue("purple.500", "teal.200");
+  const { colorLight } = useColorSwitcher();
 
   return (
     <Box outline="0" ref={ref} tabIndex={-1} {...props} as="section">
@@ -33,7 +35,6 @@ const Contact = forwardRef(({ ...props }, ref) => {
         </Text>
         <PrimaryButton
           as="a"
-          _hover={{ textDecoration: "none" }}
           href="mailto:gregogun97@gmail.com"
           theme={secondary}
         >

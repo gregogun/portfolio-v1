@@ -1,12 +1,12 @@
-import { createIcon } from "@chakra-ui/react";
+import { createIcon, defaultProps } from "@chakra-ui/react";
 import React from "react";
 
 const IconGithub = createIcon({
+  defaultProps,
   displayName: "IconGithub",
   viewBox: "0 0 2350 2314.8",
   path: (
     <path
-      fill="#FCFCFC"
       d="M1175,0C525.8,0,0,525.8,0,1175c0,552.2,378.9,1010.5,890.1,1139.7c-5.9-14.7-8.8-35.3-8.8-55.8v-199.8H734.4
     c-79.3,0-152.8-35.2-185.1-99.9c-38.2-70.5-44.1-179.2-141-246.8c-29.4-23.5-5.9-47,26.4-44.1c61.7,17.6,111.6,58.8,158.6,120.4
     c47,61.7,67.6,76.4,155.7,76.4c41.1,0,105.7-2.9,164.5-11.8c32.3-82.3,88.1-155.7,155.7-190.9c-393.6-47-581.6-240.9-581.6-505.3

@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Box, Text, Grid } from "@chakra-ui/react";
+import { Box, Text, Icon, HStack, VStack } from "@chakra-ui/react";
 import { Line, SectionHeader } from "../../../../components/layout";
 import {
   IconReact,
@@ -9,10 +9,12 @@ import {
   IconNode,
   IconElectron,
   IconGithub,
+  IconInvision,
   IconFigma,
+  IconAdobe,
 } from "../../../../assets/icons";
-import { SkillCard } from "../../../../components/card";
 import { Heading2 } from "../../../../components/typography";
+import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const Skills = forwardRef(({ ...props }, ref) => {
   return (
@@ -24,82 +26,75 @@ const Skills = forwardRef(({ ...props }, ref) => {
           mr="16px"
         />
       </Box>
-      <Grid
-        templateRows={{ base: "repeat(4, 1fr)", md: "none" }}
-        templateColumns={{ md: "repeat(2, 1fr)", xl: "repeat(4, 1fr)" }}
-        gap={6}
+      <Text pb="1em" fontSize="2em" textAlign="center">
+        Technologies & tools I've worked with:
+      </Text>
+      <Box
+        mx="auto"
+        p="4em"
+        // border="1px solid"
       >
-        <Box
-          w={{
-            base: "100%",
-            sm: "60%",
-            md: "100%",
-            lg: "85%",
-            xl: "100%",
-          }}
-          minH="30"
-          //mx="auto"
-          //bg="gray.200"
-        >
-          <Text mb="16px">Languages</Text>
-          <SkillCard icon={IconHtml} name="HTML5" />
-          <SkillCard icon={IconSass} name="CSS3 (SCSS)" />
-          <SkillCard icon={IconJs} name="JavaScript" />
-        </Box>
-        <Box
-          w={{
-            base: "100%",
-            sm: "60%",
-            md: "100%",
-            lg: "85%",
-            xl: "100%",
-          }}
-          minH="30"
-          //mx="auto"
-          //bg="gray.200"
-        >
-          <Text mb="16px">Libraries/Frameworks</Text>
-          <SkillCard icon={IconReact} name="React" />
-          <SkillCard icon={IconNode} name="Node.js" />
-          <SkillCard icon={IconElectron} name="Electron" />
-        </Box>
-        <Box
-          w={{
-            base: "100%",
-            sm: "60%",
-            md: "100%",
-            lg: "85%",
-            xl: "100%",
-          }}
-          minH="30"
-          //mx="auto"
-          //bg="gray.200"
-        >
-          <Text mb="16px">Tools/Software</Text>
-          <SkillCard icon={IconGithub} name="Git/Github" />
-          <SkillCard name="Storybook" />
-          <SkillCard icon={IconFigma} name="Figma" />
-          <SkillCard name="Adobe Suite" />
-        </Box>
-        <Box
-          w={{
-            base: "100%",
-            sm: "60%",
-            md: "100%",
-            lg: "85%",
-            xl: "100%",
-          }}
-          minH="30"
-          //mx="auto"
-          //bg="gray.200"
-        >
-          <Text mb="16px">Practices</Text>
-          <SkillCard name="Accessibility" />
-          <SkillCard name="RESTful APIs" />
-        </Box>
-      </Grid>
+        <VStack mx="auto" w="90%" spacing={16}>
+          <Languages />
+          <Frameworks />
+          <Tools />
+        </VStack>
+      </Box>
     </Box>
   );
 });
+
+const SkillBox = ({ icon, name, ...props }) => {
+  const { colorDark } = useColorSwitcher();
+  return (
+    <VStack
+      align="center"
+      boxSize={{ base: "6em", md: "8em", xl: "10em" }}
+      spacing={4}
+    >
+      <Icon
+        {...props}
+        fill={colorDark}
+        boxSize={{ base: "2em", md: "4em", xl: "6em" }}
+        as={icon}
+      />
+      <Text fontSize={{ base: "1em", md: "1.2em", xl: "1.5em" }}>{name}</Text>
+    </VStack>
+  );
+};
+
+const Languages = () => {
+  return (
+    <SkillBoxWrapper>
+      <SkillBox icon={IconHtml} name="HTML5" />
+      <SkillBox icon={IconSass} name="CSS/SCSS" />
+      <SkillBox icon={IconJs} name="JavaScript" />
+    </SkillBoxWrapper>
+  );
+};
+
+const Frameworks = () => {
+  return (
+    <SkillBoxWrapper>
+      <SkillBox icon={IconReact} name="React" />
+      <SkillBox icon={IconNode} name="Nodejs" />
+      <SkillBox icon={IconElectron} name="Electron" />
+    </SkillBoxWrapper>
+  );
+};
+
+const Tools = () => {
+  return (
+    <SkillBoxWrapper>
+      <SkillBox icon={IconGithub} name="Git/Github" />
+      <SkillBox icon={IconFigma} name="Figma" />
+      <SkillBox icon={IconAdobe} name="Adobe Suite" />
+    </SkillBoxWrapper>
+  );
+};
+
+const SkillBoxWrapper = ({ children }) => {
+  return <HStack spacing={{ base: 8, md: 16, lg: 32 }}>{children}</HStack>;
+};
 
 export default Skills;

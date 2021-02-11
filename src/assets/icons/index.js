@@ -10,4 +10,6 @@ export {
   IconGithub,
   IconFigma,
   IconCat,
+  IconInvision,
+  IconAdobe,
 } from "./imported";

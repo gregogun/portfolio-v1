@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { List, ListItem, Text } from "@chakra-ui/react";
+import { Link, List, ListItem, Text } from "@chakra-ui/react";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 import { Link as ScrollLink } from "react-scroll";
+
+// const WrappedLink = ({ children, ...props }) => {
+//   <Link {...props}>{children}</Link>;
+// };
+
+// const NavLink = ScrollLink(WrappedLink);
 
 const NavMenuItem = ({ handleClick, children }) => {
   const { brandColor } = useColorSwitcher();
@@ -30,14 +36,7 @@ const NavMenuItem = ({ handleClick, children }) => {
         duration={isRef}
         delay={100}
       >
-        <Text
-          cursor="pointer"
-          fontSize="lg"
-          // textDecoration="none"
-          _hover={{ fontWeight: "bold", color: brandColor }}
-        >
-          {children}
-        </Text>
+        {children}
       </ScrollLink>
     </ListItem>
   );
