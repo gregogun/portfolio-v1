@@ -9,3 +9,4 @@ export { default as IconFigma } from "./IconFigma";
 export { default as IconCat } from "./IconCat";
 export { default as IconInvision } from "./IconInvision";
 export { default as IconAdobe } from "./IconAdobe";
+export { default as IconPattern } from "./IconPattern";

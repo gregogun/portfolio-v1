@@ -28,7 +28,12 @@ const NavMenuItem = ({ handleClick, children }) => {
   };
 
   return (
-    <ListItem mx="16px">
+    <ListItem
+      _hover={{ color: brandColor, fontWeight: "bold" }}
+      transitionDuration="450ms"
+      cursor="pointer"
+      mx="16px"
+    >
       <ScrollLink
         to={children}
         onClick={() => handleClick(children)}

@@ -12,4 +12,5 @@ export {
   IconCat,
   IconInvision,
   IconAdobe,
+  IconPattern,
 } from "./imported";
