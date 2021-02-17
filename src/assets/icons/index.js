@@ -13,4 +13,7 @@ export {
   IconInvision,
   IconAdobe,
   IconPattern,
+  IconCss,
+  IconGit,
+  IconWebpack,
 } from "./imported";

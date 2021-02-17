@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "./header";
 import Main from "./main";
 import Footer from "./footer";
-import Projects from "./main/projects";
+import { SkipNavLink } from "@chakra-ui/skip-nav";
 
 const Homepage = () => {
   const aboutRef = useRef(null);
@@ -11,6 +11,7 @@ const Homepage = () => {
   const contactRef = useRef(null);
   return (
     <>
+      <SkipNavLink>Skip to content</SkipNavLink>
       <Header
         aboutRef={aboutRef}
         skillsRef={skillsRef}

@@ -5,6 +5,7 @@ import Hero from "./hero";
 import Skills from "./skills";
 import Projects from "./projects";
 import { MainLayout } from "../../../components/layout";
+import { SkipNavContent } from "@chakra-ui/skip-nav";
 
 const Main = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
   const handleClick = () => {
@@ -17,10 +18,13 @@ const Main = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
     <MainLayout>
       <Hero
         handleClick={handleClick}
-        mt="15vh"
+        mt="12vh"
         mb={{ base: "25vh", md: "30vh", xl: "30vh" }}
+        w={{ xl: "90%" }}
       />
-      <About ref={aboutRef} id="about" pt="10vh" mb="30vh" />
+      <SkipNavContent>
+        <About ref={aboutRef} id="about" pt="10vh" mb="30vh" />
+      </SkipNavContent>
       <Skills ref={skillsRef} id="skills" pt="10vh" mb="25vh" />
       <Projects ref={projectsRef} id="projects" pt="10vh" mb="25vh" />
       <Contact ref={contactRef} id="contact" pt="10vh" mb="25vh" />

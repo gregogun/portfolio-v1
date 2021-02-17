@@ -10,3 +10,6 @@ export { default as IconCat } from "./IconCat";
 export { default as IconInvision } from "./IconInvision";
 export { default as IconAdobe } from "./IconAdobe";
 export { default as IconPattern } from "./IconPattern";
+export { default as IconCss } from "./IconCss";
+export { default as IconGit } from "./IconGit";
+export { default as IconWebpack } from "./IconWebpack";

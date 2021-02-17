@@ -9,6 +9,10 @@ const Contact = forwardRef(({ ...props }, ref) => {
   const secondary = useColorModeValue("purple.500", "teal.200");
   const { colorLight } = useColorSwitcher();
 
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Box outline="0" ref={ref} tabIndex={-1} {...props} as="section">
       <Box mb="128px">
@@ -24,12 +28,22 @@ const Contact = forwardRef(({ ...props }, ref) => {
         display="grid"
         placeItems="center"
       >
-        <Text w="70%" fontSize="xl" mb="32px" align="center">
+        <Text
+          w={{ base: "100%", md: "70%" }}
+          fontSize={{ base: "lg", md: "xl" }}
+          mb="32px"
+          align="center"
+        >
           I'm currently looking open to freelance and part-time/full-time job
           opportunties, so if you like what you've seen please don't hesitate to
           get in touch!
         </Text>
-        <Text w="70%" fontSize="xl" mb="64px" align="center">
+        <Text
+          w={{ base: "100%", md: "70%" }}
+          fontSize={{ base: "lg", md: "xl" }}
+          mb="64px"
+          align="center"
+        >
           If you have any questions or would just like to say hi, my inbox is
           always open and I'll endeavour to get back to you as soon as I can.
         </Text>

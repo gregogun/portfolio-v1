@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Flex, Icon, Stack, Text, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Icon,
+  Stack,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 import { PrimaryButton, SecondaryButton } from "../button";
 import { Heading3 } from "../typography";
@@ -38,75 +46,41 @@ export const SkillCard = ({ icon, name = "Insert Name", ...props }) => {
 export const ProjectCard = ({ media, ...props }) => {
   const { colorDark } = useColorSwitcher();
   return (
-    <Box w={{ base: "100%", lg: "70%", xl: "50%" }}>
-      <Box
-        {...props}
-        p="8px"
-        display="grid"
-        placeItems="center"
-        alignItems="center"
-      >
-        <Box
-          border="solid 2px"
-          borderColor={colorDark}
-          boxSize={{ base: "280px", sm: "320px", md: "360px", lg: "400px" }}
-          mx="auto"
-          mb="16px"
-          display="grid"
-          placeItems="center"
-        >
-          {media && media}
-        </Box>
-      </Box>
+    <Box p="1em" {...props}>
+      {media && media}
     </Box>
   );
 };
 
 export const ProjectInfoCard = ({ name, info, live, repo, ...props }) => {
   return (
-    <Box
+    <Stack
+      maxW={{ xxl: "40%" }}
+      spacing={{ base: 8, xxl: 0 }}
+      justify="space-between"
+      p="1em"
       {...props}
-      display="grid"
-      placeItems="center"
-      w={{ base: "80%", md: "70%", lg: "55%", xl: "50%" }}
+      fontSize={{ base: "md", md: "lg" }}
     >
-      <Box p="16px" display="grid" placeItems="center">
-        <Stack
-          spacing={8}
-          h={{ md: "360px", lg: "380px", xl: "380px" }}
-          justify="space-between"
-          direction="column"
-          textAlign={{ base: "center", lg: "left" }}
-        >
-          <Heading3>{name}</Heading3>
-          <Text>{info}</Text>
-          <Stack
-            justify={!live && { md: "center", xl: "left" }}
-            align="center"
-            spacing={8}
-            direction={{ base: "column", md: "row" }}
-          >
-            {live && (
-              <PrimaryButton
-                as="a"
-                href={live}
-                w={{ base: "208px", lg: "240px" }}
-                h={{ base: "56px", lg: "64px" }}
-              >
-                LIVE SITE
-              </PrimaryButton>
-            )}
-            <SecondaryButton
-              as="a"
-              href={repo}
-              w={{ base: "208px", lg: "240px" }}
-              h={{ base: "56px", lg: "64px" }}
-            >
-              GITHUB REPO
-            </SecondaryButton>
-          </Stack>
-        </Stack>
-      </Box>
-    </Box>
+      <Heading3 {...props} textAlign={{ md: "center" }}>
+        {name}
+      </Heading3>
+      <Text>{info}</Text>
+      <Stack
+        justify={!live && { md: "center", xl: "left" }}
+        align="center"
+        spacing={8}
+        direction={{ base: "column", md: "row" }}
+      >
+        {live && (
+          <PrimaryButton as="a" href={live}>
+            LIVE SITE
+          </PrimaryButton>
+        )}
+        <SecondaryButton as="a" href={repo}>
+          GITHUB REPO
+        </SecondaryButton>
+      </Stack>
+    </Stack>
   );
 };

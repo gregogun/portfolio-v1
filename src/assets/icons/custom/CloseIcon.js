@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex, useColorMode } from "@chakra-ui/react";
 
-const MenuIcon = () => {
+const CloseIcon = () => {
   const { colorMode } = useColorMode();
   return (
     <Flex
@@ -19,14 +19,16 @@ const MenuIcon = () => {
         h="4px"
         marginBottom="1"
         bg={colorMode === "light" ? "default.dark" : "default.light"}
+        transform="translateY(.4em) rotate(-45deg)"
       />
       <Box
         w="36px"
         h="4px"
         bg={colorMode === "light" ? "default.dark" : "default.light"}
+        transform="translateY(-.4em)  rotate(45deg)"
       />
     </Flex>
   );
 };
 
-export default MenuIcon;
+export default CloseIcon;

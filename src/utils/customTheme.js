@@ -8,9 +8,11 @@ const breakpoints = createBreakpoints({
 const theme = extendTheme({
   styles: {
     global: (props) => ({
+      html: {
+        scrollBehavior: "smooth",
+      },
       body: {
         overflowX: "hidden",
-        scrollBehavior: "smooth",
         color: props.colorMode === "light" ? "default.dark" : "default.light",
         bg: props.colorMode === "light" ? "#fcfcfc" : "#232323",
         fontFamily: "body",

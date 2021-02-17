@@ -1,17 +1,10 @@
-import React from "react";
-import {
-  Box,
-  Text,
-  Flex,
-  useColorModeValue,
-  Icon,
-  Center,
-  Stack,
-} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Box, Text, useColorModeValue, Center, Stack } from "@chakra-ui/react";
 import { PrimaryButton } from "../../../../components/button";
 import { Link as ScrollLink } from "react-scroll";
 import { Heading1, Heading3 } from "../../../../components/typography";
-import { IconPattern } from "../../../../assets/icons/imported";
+import Arrow from "../../../../assets/icons/custom/Arrow";
+import SpinBall from "../../../../assets/motion/SpinBall";
 
 const IntroText = ({ color, children }) => {
   return (
@@ -27,65 +20,95 @@ const IntroText = ({ color, children }) => {
 };
 
 const Hero = ({ handleClick, ...props }) => {
+  const [scrollPos, setScrollPos] = useState();
   const secondary = useColorModeValue("purple.500", "teal.200");
 
+  useEffect(() => {
+    window.addEventListener("scroll", listenScroll);
+
+    return () => {
+      window.removeEventListener("scroll", listenScroll);
+    };
+  });
+
+  const listenScroll = () => {
+    const windowScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    const scrolledFloat = windowScroll / height;
+
+    const scrolled = scrolledFloat > 0.05;
+
+    setScrollPos(scrolled);
+  };
+
   return (
-    <Stack
-      spacing={{ base: 32, md: 64, xl: 0 }}
-      direction={{ base: "column", xl: "row" }}
-      {...props}
-      as="section"
-    >
-      <Box>
-        <Box
-          w={{ base: "100%", lg: "70%" }}
-          px={{ base: "2px", md: "4px" }}
-          mb="16px"
-        >
-          <IntroText>Hello, I'm</IntroText>
-        </Box>
-        <Box
-          w={{ base: "100%", lg: "90%" }}
-          minH={{ base: "48px", md: "80px" }}
-          py={{ base: "8px", lg: "16px" }}
-          mb="8px"
-        >
-          <Heading1>Greg Ogun</Heading1>
-        </Box>
-        <Box
-          w={{ base: "100%", lg: "70%" }}
-          py={{ base: "0", lg: "16px" }}
-          px={{ base: "2px", lg: "4px" }}
-        >
-          <Heading3 big={true} bg="gray.200" color={secondary}>
-            Junior Front-End Developer
-          </Heading3>
-        </Box>
-        <Box w={{ base: "90%", md: "75%", lg: "50%" }} my="16px">
-          <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} fontWeight="bold">
-            I’m a curiousity-driven coder with a passion for designing and
-            building user-centric, inclusive experiences on the web.
-          </Text>
-        </Box>
-        <Box my={{ base: "32px" }}>
-          <ScrollLink
-            to="about"
-            onClick={handleClick}
-            smooth={true}
-            duration={750}
-            delay={100}
-          >
-            <PrimaryButton theme={secondary}>LEARN MORE</PrimaryButton>
-          </ScrollLink>
-        </Box>
-      </Box>
-      <Center
-        alignSelf={{ base: "center", xl: "inherit" }}
-        boxSize={{ base: "15em", md: "20em", lg: "25em", xl: "30em" }}
+    <Box {...props}>
+      <Stack
+        spacing={{ base: 32, sm: 24, md: 64, lg: 80, xl: 32 }}
+        direction={{ base: "column", xl: "row" }}
+        pb={{ xl: "1em", xxl: "10em" }}
+        as="section"
+        align="center"
+        position="relative"
       >
-        <Icon boxSize="100%" fill={secondary} as={IconPattern} />
-      </Center>
-    </Stack>
+        <HeroText order={-2} handleClick={handleClick} />
+        <Box
+          opacity={scrollPos ? 0 : 1}
+          transition="visibility 0s linear 300ms, opacity 600ms"
+          visibility={scrollPos ? "hidden" : "visible"}
+          position={{ xl: "absolute" }}
+          bottom={{ xl: "16px", xxl: "8px" }}
+          left={{ xl: "45%" }}
+        >
+          <Arrow size="8px" />
+        </Box>
+        <Center
+          border="1px solid"
+          rounded="full"
+          order={{ xl: -1 }}
+          alignSelf={{ base: "center", xl: "inherit" }}
+          p="2em"
+        >
+          <SpinBall />
+        </Center>
+      </Stack>
+    </Box>
+  );
+};
+
+const HeroText = ({ handleClick, ...props }) => {
+  const secondary = useColorModeValue("purple.500", "teal.200");
+  return (
+    <Box as="section" {...props}>
+      <IntroText>Hello, I'm</IntroText>
+
+      <Heading1>Greg Ogun</Heading1>
+      <Heading3 big={true} color={secondary}>
+        Junior Front-End Developer
+      </Heading3>
+      <Text
+        w={{ base: "90%", xl: "70%" }}
+        fontSize={{ base: "sm", md: "md", lg: "lg" }}
+        fontWeight="bold"
+      >
+        I’m a curiousity-driven coder with a passion for designing and building
+        user-centric, inclusive experiences on the web.
+      </Text>
+      <Box my={{ base: "32px" }}>
+        <PrimaryButton
+          as="a"
+          href="mailto:gregogun97@gmail.com"
+          theme={secondary}
+        >
+          GET IN TOUCH
+        </PrimaryButton>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Box, Text, Icon, HStack, VStack } from "@chakra-ui/react";
+import { Box, Text, Icon, HStack, VStack, Grid } from "@chakra-ui/react";
 import { Line, SectionHeader } from "../../../../components/layout";
 import {
   IconReact,
@@ -12,13 +12,16 @@ import {
   IconInvision,
   IconFigma,
   IconAdobe,
+  IconCss,
+  IconWebpack,
+  IconGit,
 } from "../../../../assets/icons";
 import { Heading2 } from "../../../../components/typography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const Skills = forwardRef(({ ...props }, ref) => {
   return (
-    <Box outline="0" ref={ref} tabIndex={-1} {...props}>
+    <Box as="section" outline="0" ref={ref} tabIndex={-1} {...props}>
       <Box mb="128px">
         <SectionHeader
           heading={<Heading2>skills</Heading2>}
@@ -26,20 +29,26 @@ const Skills = forwardRef(({ ...props }, ref) => {
           mr="16px"
         />
       </Box>
-      <Text pb="1em" fontSize="2em" textAlign="center">
-        Technologies & tools I've worked with:
+      <Text pb="1em" fontSize={{ base: "1.5em", md: "2em" }} textAlign="center">
+        Technologies & tools I work with:
       </Text>
-      <Box
+      <Grid
         mx="auto"
-        p="4em"
-        // border="1px solid"
+        py="5em"
+        w={{ base: "100%", lg: "90%" }}
+        templateColumns={{
+          base: "repeat(2, 1fr)",
+          md: "repeat(3, 1fr)",
+          xl: "repeat(4, 1fr)",
+        }}
+        border="1px solid"
+        gap={{ base: 8, md: 16 }}
+        placeItems="center"
       >
-        <VStack mx="auto" w="90%" spacing={16}>
-          <Languages />
-          <Frameworks />
-          <Tools />
-        </VStack>
-      </Box>
+        <Languages />
+        <Frameworks />
+        <Tools />
+      </Grid>
     </Box>
   );
 });
@@ -49,13 +58,14 @@ const SkillBox = ({ icon, name, ...props }) => {
   return (
     <VStack
       align="center"
-      boxSize={{ base: "6em", md: "8em", xl: "10em" }}
+      justify="center"
+      boxSize={{ base: "7em", md: "8em", xl: "10em" }}
       spacing={4}
     >
       <Icon
         {...props}
         fill={colorDark}
-        boxSize={{ base: "2em", md: "4em", xl: "6em" }}
+        boxSize={{ base: "4em", md: "5em", xl: "5em" }}
         as={icon}
       />
       <Text fontSize={{ base: "1em", md: "1.2em", xl: "1.5em" }}>{name}</Text>
@@ -65,31 +75,34 @@ const SkillBox = ({ icon, name, ...props }) => {
 
 const Languages = () => {
   return (
-    <SkillBoxWrapper>
+    <>
       <SkillBox icon={IconHtml} name="HTML5" />
-      <SkillBox icon={IconSass} name="CSS/SCSS" />
+      <SkillBox icon={IconCss} name="CSS3" />
+      <SkillBox icon={IconSass} name="SCSS" />
       <SkillBox icon={IconJs} name="JavaScript" />
-    </SkillBoxWrapper>
+    </>
   );
 };
 
 const Frameworks = () => {
   return (
-    <SkillBoxWrapper>
+    <>
       <SkillBox icon={IconReact} name="React" />
+      <SkillBox icon={IconWebpack} name="Webpack" />
       <SkillBox icon={IconNode} name="Nodejs" />
       <SkillBox icon={IconElectron} name="Electron" />
-    </SkillBoxWrapper>
+    </>
   );
 };
 
 const Tools = () => {
   return (
-    <SkillBoxWrapper>
-      <SkillBox icon={IconGithub} name="Git/Github" />
+    <>
+      <SkillBox icon={IconGit} name="Git" />
       <SkillBox icon={IconFigma} name="Figma" />
       <SkillBox icon={IconAdobe} name="Adobe Suite" />
-    </SkillBoxWrapper>
+      <SkillBox icon={IconInvision} name="Invision" />
+    </>
   );
 };
 

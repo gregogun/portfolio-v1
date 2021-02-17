@@ -38,10 +38,16 @@ const Projects = forwardRef(({ ...props }, ref) => {
       </Box>
       {projects.map((project) => (
         <Stack
+          mx="auto"
+          w={{ xl: "80%", xxl: "100%" }}
+          p={{ md: "2em", lg: "4em" }}
+          rounded="8px"
+          boxShadow={{ md: "0 0 0 2px" }}
           key={project.id}
-          align="center"
+          align={{ base: "center", xxl: "unset" }}
+          justify="center"
           spacing={4}
-          direction={{ base: "column", xl: "row" }}
+          direction={{ base: "column", xxl: "row" }}
           mb="128px"
         >
           <ProjectCard media={project.media} />
