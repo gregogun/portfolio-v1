@@ -34,7 +34,7 @@ const Contact = forwardRef(({ ...props }, ref) => {
           mb="32px"
           align="center"
         >
-          I'm currently looking open to freelance and part-time/full-time job
+          I'm currently open to freelance and actively looking for part-time/full-time job
           opportunties, so if you like what you've seen please don't hesitate to
           get in touch!
         </Text>

@@ -96,7 +96,7 @@ const HeroText = ({ handleClick, ...props }) => {
         fontSize={{ base: "sm", md: "md", lg: "lg" }}
         fontWeight="bold"
       >
-        I’m a curiousity-driven coder with a passion for designing and building
+        I’m a self-taught, curiousity-driven coder with a passion for designing and building
         user-centric, inclusive experiences on the web.
       </Text>
       <Box my={{ base: "32px" }}>
