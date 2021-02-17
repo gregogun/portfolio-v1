@@ -1,7 +1,6 @@
 export { default as IconReact } from "./IconReact";
 export { default as IconHtml } from "./IconHtml";
 export { default as IconSass } from "./IconSass";
-export { default as IconJs } from "./IconJs";
 export { default as IconNode } from "./IconNode";
 export { default as IconElectron } from "./IconElectron";
 export { default as IconGithub } from "./IconGithub";

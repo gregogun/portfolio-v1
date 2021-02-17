@@ -5,7 +5,6 @@ import {
   IconReact,
   IconHtml,
   IconSass,
-  IconJs,
   IconNode,
   IconElectron,
   IconGithub,
@@ -18,6 +17,7 @@ import {
 } from "../../../../assets/icons";
 import { Heading2 } from "../../../../components/typography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
+import IconJS from "../../../../assets/icons/imported/IconJs";
 
 const Skills = forwardRef(({ ...props }, ref) => {
   return (
@@ -79,7 +79,7 @@ const Languages = () => {
       <SkillBox icon={IconHtml} name="HTML5" />
       <SkillBox icon={IconCss} name="CSS3" />
       <SkillBox icon={IconSass} name="SCSS" />
-      <SkillBox icon={IconJs} name="JavaScript" />
+      <SkillBox icon={IconJS} name="JavaScript" />
     </>
   );
 };
