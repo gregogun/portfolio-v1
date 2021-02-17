@@ -9,7 +9,7 @@ const projects = [
     media: <PortfolioImg />,
     live: null,
     // need to update to current site url once site goes public
-    repo: "https://github.com/gregogun",
+    repo: null,
     id: 1,
   },
   {

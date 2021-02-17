@@ -62,25 +62,31 @@ export const ProjectInfoCard = ({ name, info, live, repo, ...props }) => {
       {...props}
       fontSize={{ base: "md", md: "lg" }}
     >
-      <Heading3 {...props} textAlign={{ md: "center" }}>
-        {name}
-      </Heading3>
-      <Text>{info}</Text>
-      <Stack
-        justify={!live && { md: "center", xl: "left" }}
-        align="center"
-        spacing={8}
-        direction={{ base: "column", md: "row" }}
-      >
-        {live && (
-          <PrimaryButton as="a" href={live}>
-            LIVE SITE
-          </PrimaryButton>
-        )}
-        <SecondaryButton as="a" href={repo}>
-          GITHUB REPO
-        </SecondaryButton>
+      <Stack>
+        <Heading3 {...props} textAlign={{ md: "center" }}>
+          {name}
+        </Heading3>
+        <Text>{info}</Text>
       </Stack>
+      {live !== null && repo !== null && (
+        <Stack
+          justify={!live && { md: "center", xl: "left" }}
+          align="center"
+          spacing={8}
+          direction={{ base: "column", md: "row" }}
+        >
+          {live !== null && (
+            <PrimaryButton as="a" href={live}>
+              LIVE SITE
+            </PrimaryButton>
+          )}
+          {repo !== null && (
+            <SecondaryButton as="a" href={repo}>
+              GITHUB REPO
+            </SecondaryButton>
+          )}
+        </Stack>
+      )}
     </Stack>
   );
 };
