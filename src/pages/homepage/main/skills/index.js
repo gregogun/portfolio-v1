@@ -14,10 +14,10 @@ import {
   IconCss,
   IconWebpack,
   IconGit,
+  IconJS,
 } from "../../../../assets/icons";
 import { Heading2 } from "../../../../components/typography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
-import IconJS from "../../../../assets/icons/imported/IconJs";
 
 const Skills = forwardRef(({ ...props }, ref) => {
   return (

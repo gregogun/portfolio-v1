@@ -4,7 +4,7 @@ export {
   IconReact,
   IconHtml,
   IconSass,
-  IconJs,
+  IconJS,
   IconNode,
   IconElectron,
   IconGithub,
