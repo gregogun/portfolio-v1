@@ -2,7 +2,7 @@ import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import React, { forwardRef, useEffect } from "react";
 import { ImageProfile } from "../../../../assets/images";
 import { Line, SectionHeader } from "../../../../components/layout";
-import { Body, Heading2 } from "../../../../components/typography";
+import { Body, Heading2, Heading3 } from "../../../../components/typography";
 
 const About = forwardRef(({ ...props }, ref) => {
   const greyBg = useColorModeValue("neutral.300", "neutral.500");
@@ -40,20 +40,24 @@ const About = forwardRef(({ ...props }, ref) => {
             <ImageProfile />
           </Box>
         </Box>
-        <Box p="8px" w={{ base: "100%", xl: "50%" }}>
+        <Stack p="8px" w={{ base: "100%", xl: "50%" }}>
           <Body mb="2em">
             Hello! I'm Greg, a junior front-end developer based in Bedford, UK.
             I love to work on exciting projects that test what I've learnt,
             whilst being exposed to the power and potential of the ever-evolving
-            technologies around us.
+            technologies around us. I'm always looking for better, and more
+            importantly, ethical and accessible ways to solve the common
+            problems we are faced with day-to-day.
           </Body>
-          <Body>
-            Whilst most of the projects I've worked on have helped me to learn
-            and improve my skills, I am particularly passionate about working on
-            forward-thinking projects that contribute to making the world a
-            fairer place for all.
-          </Body>
-        </Box>
+          <Box>
+            <Heading3>I'm currently working on:</Heading3>
+            <Body>Lots of stuff!</Body>
+          </Box>
+          <Box>
+            <Heading3>I'm hoping to learn:</Heading3>
+            <Body>Lots of stuff!</Body>
+          </Box>
+        </Stack>
       </Stack>
     </Box>
   );

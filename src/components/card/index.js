@@ -11,6 +11,7 @@ import {
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 import { PrimaryButton, SecondaryButton } from "../button";
 import { Body, Heading3 } from "../typography";
+import { BiRightArrow } from "react-icons/bi";
 
 export const SkillCard = ({ icon, name = "Insert Name", ...props }) => {
   const { colorMode } = useColorMode();
@@ -66,7 +67,16 @@ export const ProjectInfoCard = ({ name, info, live, repo, ...props }) => {
         <Heading3 {...props} textAlign={{ md: "center" }}>
           {name}
         </Heading3>
-        <Body>{info}</Body>
+        {info.length !== 0 && (
+          <Stack spacing={8} as="ul">
+            {info.map((item, index) => (
+              <Stack direction="row" as="li" key={index}>
+                <Icon pos="relative" top="4px" as={BiRightArrow} />
+                <Body>{item}</Body>
+              </Stack>
+            ))}
+          </Stack>
+        )}
       </Stack>
       {live !== null && repo !== null && (
         <Stack
