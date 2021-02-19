@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { Box, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import { Line, SectionHeader } from "../../../../components/layout";
 import { PrimaryButton } from "../../../../components/button";
-import { Heading2 } from "../../../../components/typography";
+import { Body, Heading2 } from "../../../../components/typography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const Contact = forwardRef(({ ...props }, ref) => {
@@ -28,7 +28,7 @@ const Contact = forwardRef(({ ...props }, ref) => {
         display="grid"
         placeItems="center"
       >
-        <Text
+        <Body
           w={{ base: "100%", md: "70%" }}
           fontSize={{ base: "lg", md: "xl" }}
           mb="32px"
@@ -37,8 +37,8 @@ const Contact = forwardRef(({ ...props }, ref) => {
           I'm currently looking open to freelance and part-time/full-time job
           opportunties, so if you like what you've seen please don't hesitate to
           get in touch!
-        </Text>
-        <Text
+        </Body>
+        <Body
           w={{ base: "100%", md: "70%" }}
           fontSize={{ base: "lg", md: "xl" }}
           mb="64px"
@@ -46,7 +46,7 @@ const Contact = forwardRef(({ ...props }, ref) => {
         >
           If you have any questions or would just like to say hi, my inbox is
           always open and I'll endeavour to get back to you as soon as I can.
-        </Text>
+        </Body>
         <PrimaryButton
           as="a"
           href="mailto:gregogun97@gmail.com"

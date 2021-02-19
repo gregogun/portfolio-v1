@@ -13,3 +13,5 @@ export { default as IconPattern } from "./IconPattern";
 export { default as IconCss } from "./IconCss";
 export { default as IconGit } from "./IconGit";
 export { default as IconWebpack } from "./IconWebpack";
+export { default as IconResponsive } from "./IconResponsive";
+export { default as IconRest } from "./IconRest";

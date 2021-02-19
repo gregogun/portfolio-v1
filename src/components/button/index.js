@@ -41,7 +41,7 @@ export const PrimaryButton = ({
   borderColor,
   w = "188px",
   h = "56px",
-  size = "md",
+  size = { base: "sm", sm: "md" },
   ...props
 }) => {
   const { colorLight, colorDark, hoverLight } = useColorSwitcher();
@@ -70,6 +70,7 @@ export const SecondaryButton = ({
   theme,
   w = "188px",
   h = "56px",
+  size = { base: "sm", sm: "md" },
   ...props
 }) => {
   const { colorLight, colorDark, hoverDark, hoverLight } = useColorSwitcher();
@@ -78,7 +79,7 @@ export const SecondaryButton = ({
       {...props}
       w={w}
       h={h}
-      size="lg"
+      size={size}
       bg={colorDark}
       color={colorLight}
       hoverBg={hoverDark}

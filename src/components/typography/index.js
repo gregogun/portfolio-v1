@@ -7,7 +7,7 @@ export const Heading1 = ({ children, ...props }) => {
       {...props}
       as="h1"
       py={{ base: "0.25em", md: "0.75em" }}
-      fontSize={{ base: "3.5em", sm: "4em", md: "5em", lg: "6em" }}
+      fontSize={{ base: "3em", sm: "4em", md: "5em", lg: "6em" }}
       lineHeight={{ base: "1em", sm: 0 }}
     >
       {children}
@@ -61,5 +61,13 @@ export const Heading3 = ({ big = false, color, children, ...props }) => {
     >
       {children}
     </Heading>
+  );
+};
+
+export const Body = ({ children, ...props }) => {
+  return (
+    <Text {...props} fontSize={{ base: "xs", sm: "sm", md: "md", xl: "lg" }}>
+      {children}
+    </Text>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Text, useColorModeValue, Center, Stack } from "@chakra-ui/react";
 import { PrimaryButton } from "../../../../components/button";
 import { Link as ScrollLink } from "react-scroll";
-import { Heading1, Heading3 } from "../../../../components/typography";
+import { Body, Heading1, Heading3 } from "../../../../components/typography";
 import Arrow from "../../../../assets/icons/custom/Arrow";
 import SpinBall from "../../../../assets/motion/SpinBall";
 
@@ -89,16 +89,22 @@ const HeroText = ({ handleClick, ...props }) => {
 
       <Heading1>Greg Ogun</Heading1>
       <Heading3 big={true} color={secondary}>
-        Junior Front-End Developer
+        Front-End Developer
       </Heading3>
-      <Text
+      <Body
         w={{ base: "90%", xl: "70%" }}
-        fontSize={{ base: "sm", md: "md", lg: "lg" }}
+        bg={{
+          base: "red.200",
+          xs: "yellow.200",
+          sm: "blue.200",
+          md: "green.200",
+        }}
+        //fontSize={{ base: "sm", md: "md", lg: "lg" }}
         fontWeight="bold"
       >
-        I’m a curiousity-driven coder with a passion for designing and building
-        user-centric, inclusive experiences on the web.
-      </Text>
+        I’m a self-taught, curiousity-driven coder with a passion for designing
+        and building user-centric, inclusive experiences on the web.
+      </Body>
       <Box my={{ base: "32px" }}>
         <PrimaryButton
           as="a"

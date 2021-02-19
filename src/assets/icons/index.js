@@ -16,4 +16,6 @@ export {
   IconCss,
   IconGit,
   IconWebpack,
+  IconResponsive,
+  IconRest,
 } from "./imported";

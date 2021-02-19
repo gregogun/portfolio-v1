@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 import { PrimaryButton, SecondaryButton } from "../button";
-import { Heading3 } from "../typography";
+import { Body, Heading3 } from "../typography";
 
 export const SkillCard = ({ icon, name = "Insert Name", ...props }) => {
   const { colorMode } = useColorMode();
@@ -66,7 +66,7 @@ export const ProjectInfoCard = ({ name, info, live, repo, ...props }) => {
         <Heading3 {...props} textAlign={{ md: "center" }}>
           {name}
         </Heading3>
-        <Text>{info}</Text>
+        <Body>{info}</Body>
       </Stack>
       {live !== null && repo !== null && (
         <Stack
@@ -76,12 +76,12 @@ export const ProjectInfoCard = ({ name, info, live, repo, ...props }) => {
           direction={{ base: "column", md: "row" }}
         >
           {live !== null && (
-            <PrimaryButton as="a" href={live}>
+            <PrimaryButton w="100%" as="a" href={live}>
               LIVE SITE
             </PrimaryButton>
           )}
           {repo !== null && (
-            <SecondaryButton as="a" href={repo}>
+            <SecondaryButton w="100%" as="a" href={repo}>
               GITHUB REPO
             </SecondaryButton>
           )}

@@ -7,7 +7,6 @@ import {
   IconSass,
   IconNode,
   IconElectron,
-  IconGithub,
   IconInvision,
   IconFigma,
   IconAdobe,
@@ -15,8 +14,10 @@ import {
   IconWebpack,
   IconGit,
   IconJS,
+  IconResponsive,
+  IconRest,
 } from "../../../../assets/icons";
-import { Heading2 } from "../../../../components/typography";
+import { Body, Heading2 } from "../../../../components/typography";
 import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const Skills = forwardRef(({ ...props }, ref) => {
@@ -29,7 +30,11 @@ const Skills = forwardRef(({ ...props }, ref) => {
           mr="16px"
         />
       </Box>
-      <Text pb="1em" fontSize={{ base: "1.5em", md: "2em" }} textAlign="center">
+      <Text
+        pb="1em"
+        fontSize={{ base: "1em", sm: "1.25em", md: "1.5em", xl: "2em" }}
+        textAlign="center"
+      >
         Technologies & tools I work with:
       </Text>
       <Grid
@@ -65,10 +70,15 @@ const SkillBox = ({ icon, name, ...props }) => {
       <Icon
         {...props}
         fill={colorDark}
-        boxSize={{ base: "4em", md: "5em", xl: "5em" }}
+        boxSize={{ base: "2.5em", md: "3em", xl: "4em" }}
         as={icon}
       />
-      <Text fontSize={{ base: "1em", md: "1.2em", xl: "1.5em" }}>{name}</Text>
+      <Body
+        textAlign="center"
+        fontSize={{ base: "1em", md: "1.2em", xl: "1.5em" }}
+      >
+        {name}
+      </Body>
     </VStack>
   );
 };
@@ -79,7 +89,7 @@ const Languages = () => {
       <SkillBox icon={IconHtml} name="HTML5" />
       <SkillBox icon={IconCss} name="CSS3" />
       <SkillBox icon={IconSass} name="SCSS" />
-      <SkillBox icon={IconJS} name="JavaScript" />
+      <SkillBox icon={IconResponsive} name="Responsive Design" />
     </>
   );
 };
@@ -87,8 +97,8 @@ const Languages = () => {
 const Frameworks = () => {
   return (
     <>
+      <SkillBox icon={IconJS} name="JavaScript" />
       <SkillBox icon={IconReact} name="React" />
-      <SkillBox icon={IconWebpack} name="Webpack" />
       <SkillBox icon={IconNode} name="Nodejs" />
       <SkillBox icon={IconElectron} name="Electron" />
     </>
@@ -98,10 +108,10 @@ const Frameworks = () => {
 const Tools = () => {
   return (
     <>
+      <SkillBox icon={IconRest} name="RESTful API" />
       <SkillBox icon={IconGit} name="Git" />
       <SkillBox icon={IconFigma} name="Figma" />
       <SkillBox icon={IconAdobe} name="Adobe Suite" />
-      <SkillBox icon={IconInvision} name="Invision" />
     </>
   );
 };
