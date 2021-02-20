@@ -1,6 +1,7 @@
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import React, { forwardRef, useEffect } from "react";
 import { ImageProfile } from "../../../../assets/images";
+import SpherePulse from "../../../../assets/motion/SpherePulse";
 import { Line, SectionHeader } from "../../../../components/layout";
 import { Body, Heading2, Heading3 } from "../../../../components/typography";
 
@@ -40,7 +41,7 @@ const About = forwardRef(({ ...props }, ref) => {
             <ImageProfile />
           </Box>
         </Box>
-        <Stack p="8px" w={{ base: "100%", xl: "50%" }}>
+        <Stack spacing={12} p="8px" w={{ base: "100%", xl: "50%" }}>
           <Body mb="2em">
             Hello! I'm Greg, a junior front-end developer based in Bedford, UK.
             I love to work on exciting projects that test what I've learnt,
@@ -50,17 +51,40 @@ const About = forwardRef(({ ...props }, ref) => {
             problems we are faced with day-to-day.
           </Body>
           <Box>
-            <Heading3>I'm currently working on:</Heading3>
-            <Body>Lots of stuff!</Body>
+            <Heading3>Things I've been up to recently:</Heading3>
+            <Stack as="ul">
+              <Bullet>Building this site </Bullet>
+              <Bullet>Getting deeper into Nodejs</Bullet>
+              <Bullet>Learning Gatsby</Bullet>
+              <Bullet>Working on a few "secret projects"</Bullet>
+            </Stack>
           </Box>
           <Box>
-            <Heading3>I'm hoping to learn:</Heading3>
-            <Body>Lots of stuff!</Body>
+            <Stack as="ul">
+              <Heading3>I'm hoping to:</Heading3>
+              <Bullet>Start learning three.js</Bullet>
+              <Bullet>Develop this site</Bullet>
+              <Bullet>Make some meaningful contributions to open source</Bullet>
+            </Stack>
           </Box>
         </Stack>
       </Stack>
     </Box>
   );
 });
+
+const Bullet = ({ children }) => {
+  return (
+    <Stack spacing={3} direction="row" as="li">
+      <Box>
+        <SpherePulse
+          position="relative"
+          top={{ base: "6px", md: "7px", lg: "8px" }}
+        />
+      </Box>
+      <Body>{children}</Body>
+    </Stack>
+  );
+};
 
 export default About;

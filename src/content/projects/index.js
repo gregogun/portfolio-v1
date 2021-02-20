@@ -3,12 +3,12 @@ import { GitjobsImg, PortfolioImg } from "../../assets/images";
 
 const projects = [
   {
-    name: "Portfolio v1",
+    name: "This Site",
     info: [
       "Built with React using parcel bundler for it's no-config approach.",
-      "Using Chakra UI to build the UI",
-      "Using storybook for visual testing and build reusable components",
-      "Going forward, I'm hoping to include a blog, integrating with Gatsby for it's SEO, MDX & SSG features.",
+      "Using Chakra UI to build the UI.",
+      "Using storybook for visual testing and building reusable components.",
+      "Going forward, I'm hoping to integrate Gatsby for it's SEO, MDX & SSG features.",
     ],
     media: <PortfolioImg />,
     live: null,
@@ -19,9 +19,9 @@ const projects = [
   {
     name: "gitjobs",
     info: [
-      "Search for jobs available on the Github Jobs site, with reimagined design and functionality",
+      "Search for jobs available on the Github Jobs site, with reimagined, fully responsive design and functionality.",
       "You can search by job title/keyword, location or full time positions.",
-      `Supports light/dark mode`,
+      "Supports light/dark mode.",
     ],
     media: <GitjobsImg />,
     live: "https://go-gitjobs.netlify.app",

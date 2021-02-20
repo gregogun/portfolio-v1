@@ -51,7 +51,7 @@ const Projects = forwardRef(({ ...props }, ref) => {
           mb="128px"
         >
           <ProjectCard media={project.media} />
-          <ProjectInfoCard {...project} />
+          <ProjectInfoCard length={project.length} {...project} />
         </Stack>
       ))}
     </Box>

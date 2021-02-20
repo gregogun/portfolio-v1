@@ -18,7 +18,7 @@ const Main = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
     <MainLayout>
       <Hero
         handleClick={handleClick}
-        mt="12vh"
+        mt={{ base: "12vh", xxxl: "32vh" }}
         mb={{ base: "25vh", md: "30vh", xl: "30vh" }}
         w={{ xl: "90%" }}
       />

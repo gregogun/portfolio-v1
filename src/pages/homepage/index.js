@@ -3,6 +3,7 @@ import Header from "./header";
 import Main from "./main";
 import Footer from "./footer";
 import { SkipNavLink } from "@chakra-ui/skip-nav";
+import { PrimaryButton } from "../../components/button";
 
 const Homepage = () => {
   const aboutRef = useRef(null);
@@ -11,7 +12,17 @@ const Homepage = () => {
   const contactRef = useRef(null);
   return (
     <>
-      <SkipNavLink>Skip to content</SkipNavLink>
+      <PrimaryButton
+        as="a"
+        href=" #about"
+        //left="50%"
+        position="absolute"
+        transform="translateX(-100%)"
+        transition="transform 0.3s"
+        _focus={{ transform: "translateX(0%)" }}
+      >
+        Skip To Content
+      </PrimaryButton>
       <Header
         aboutRef={aboutRef}
         skillsRef={skillsRef}
