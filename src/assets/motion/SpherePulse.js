@@ -13,7 +13,7 @@ const SpherePulse = ({ ...props }) => {
     <Box
       {...props}
       display="block"
-      boxSize={{ base: "0.5em", md: "0.6em", lg: "0.75em" }}
+      boxSize={{ base: "0.5em", md: "0.6em", lg: "0.65em" }}
       rounded="full"
       background={secondary}
       boxShadow={`${secondary}66`}

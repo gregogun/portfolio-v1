@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Text, useColorModeValue, Center, Stack } from "@chakra-ui/react";
 import { PrimaryButton } from "../../../../components/button";
-import { Link as ScrollLink } from "react-scroll";
 import { Body, Heading1, Heading3 } from "../../../../components/typography";
 import Arrow from "../../../../assets/icons/custom/Arrow";
 import SpinBall from "../../../../assets/motion/SpinBall";
@@ -21,7 +20,6 @@ const IntroText = ({ color, children }) => {
 
 const Hero = ({ handleClick, ...props }) => {
   const [scrollPos, setScrollPos] = useState();
-  const secondary = useColorModeValue("purple.500", "teal.200");
 
   useEffect(() => {
     window.addEventListener("scroll", listenScroll);
@@ -68,7 +66,7 @@ const Hero = ({ handleClick, ...props }) => {
           <Arrow size="8px" />
         </Box>
         <Center
-          border="1px solid"
+          border="2px solid"
           rounded="full"
           order={{ xl: -1 }}
           alignSelf={{ base: "center", xl: "inherit" }}
@@ -99,11 +97,10 @@ const HeroText = ({ handleClick, ...props }) => {
           sm: "blue.200",
           md: "green.200",
         }}
-        //fontSize={{ base: "sm", md: "md", lg: "lg" }}
         fontWeight="bold"
       >
-        A self-taught curiousity-driven coder with a passion for designing and
-        building user-centric, inclusive experiences on the web.
+        A curiousity-driven coder with a passion for designing and building
+        user-centric, inclusive experiences on the web.
       </Body>
       <Box my={{ base: "32px" }}>
         <PrimaryButton
