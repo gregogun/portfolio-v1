@@ -3,7 +3,8 @@ import { Box, Text, useColorModeValue, Center, Stack } from "@chakra-ui/react";
 import { PrimaryButton } from "../../../../components/button";
 import { Body, Heading1, Heading3 } from "../../../../components/typography";
 import Arrow from "../../../../assets/icons/custom/Arrow";
-import SpinBall from "../../../../assets/motion/SpinBall";
+import { CircleArray } from "../../../../assets/motion/CircleArray";
+import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const IntroText = ({ color, children }) => {
   return (
@@ -20,6 +21,7 @@ const IntroText = ({ color, children }) => {
 
 const Hero = ({ handleClick, ...props }) => {
   const [scrollPos, setScrollPos] = useState();
+  const { secondary, colorLight } = useColorSwitcher();
 
   useEffect(() => {
     window.addEventListener("scroll", listenScroll);
@@ -66,13 +68,18 @@ const Hero = ({ handleClick, ...props }) => {
           <Arrow size="8px" />
         </Box>
         <Center
-          border="2px solid"
+          //border="2px solid"
           rounded="full"
           order={{ xl: -1 }}
           alignSelf={{ base: "center", xl: "inherit" }}
-          p="2em"
+          //p="2em"
         >
-          <SpinBall />
+          <CircleArray
+            strokeWidth="1px"
+            fill={colorLight}
+            stroke={secondary}
+            boxSize={{ base: "15em", md: "20em" }}
+          />
         </Center>
       </Stack>
     </Box>
@@ -80,7 +87,7 @@ const Hero = ({ handleClick, ...props }) => {
 };
 
 const HeroText = ({ handleClick, ...props }) => {
-  const secondary = useColorModeValue("purple.500", "teal.200");
+  const { secondary } = useColorSwitcher();
   return (
     <Box as="section" {...props}>
       <IntroText>Hello, I'm</IntroText>

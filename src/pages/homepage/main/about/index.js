@@ -51,19 +51,13 @@ const About = forwardRef(({ ...props }, ref) => {
             problems we are faced with day-to-day.
           </Body>
           <Box>
-            <Heading3>Things I've been up to recently:</Heading3>
+            <Heading3>What I've been up to:</Heading3>
             <Stack as="ul">
               <Bullet>Building this!</Bullet>
               <Bullet>Getting deeper into React and Nodejs</Bullet>
+              <Bullet>Learning GraphQL</Bullet>
               <Bullet>Starting my podcast show and blogging</Bullet>
-            </Stack>
-          </Box>
-          <Box>
-            <Stack as="ul">
-              <Heading3>I'm hoping to:</Heading3>
-              <Bullet>Build more features for this site</Bullet>
-              <Bullet>Learn WebGL (three.js), GraphQL and Typescript</Bullet>
-              <Bullet>Make some meaningful contributions to open source</Bullet>
+              <Bullet>Preparing for the Chingu Voyage 28!</Bullet>
             </Stack>
           </Box>
         </Stack>

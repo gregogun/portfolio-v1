@@ -6,12 +6,9 @@ const useColorSwitcher = () => {
   const hoverLight = useColorModeValue("neutral.50", "neutral.800");
   const hoverDark = useColorModeValue("neutral.800", "neutral.100");
 
-  const brandColor = useColorModeValue(
-    "brand.primary.500",
-    "brand.secondary.200"
-  );
+  const secondary = useColorModeValue("purple.500", "teal.200");
 
-  return { colorLight, colorDark, hoverLight, hoverDark, brandColor };
+  return { colorLight, colorDark, hoverLight, hoverDark, secondary };
 };
 
 export default useColorSwitcher;

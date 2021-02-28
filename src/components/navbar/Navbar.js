@@ -63,9 +63,7 @@ const Navbar = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
         color={colorDark}
         icon={<ThemeIcon />}
       >
-        <VisuallyHidden>
-          {colorMode === "light" ? "Toggle Dark Mode" : "Toggle Light Mode"}
-        </VisuallyHidden>
+        <VisuallyHidden>Toggle light/dark mode</VisuallyHidden>
       </IconButton>
     </Flex>
   );

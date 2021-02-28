@@ -67,6 +67,6 @@ export const rightBracket = createIcon({
       visibility="visible"
       display="inline"
       overflow="visible"
-    ></path>
+    />
   ),
 });
