@@ -76,9 +76,9 @@ const Hero = ({ handleClick, ...props }) => {
         >
           <CircleArray
             strokeWidth="1px"
-            fill={colorLight}
+            fill={secondary}
             stroke={secondary}
-            boxSize={{ base: "15em", md: "20em" }}
+            boxSize={{ base: "15em", md: "22em" }}
           />
         </Center>
       </Stack>

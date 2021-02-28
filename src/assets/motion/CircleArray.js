@@ -10,25 +10,28 @@ const groupVariants = {
     opacity: 1,
     transition: {
       delayChildren: 0.5,
-      staggerChildren: 0.15,
-      // duration: 2,
+      staggerChildren: 0.3,
+      //duration: 2,
       // ease: "easeInOut",
     },
   },
 };
 
 const child = {
-  hidden: { opacity: 0 },
+  hidden: {
+    scale: [0, 0.2, 0.5, 0.8, 1],
+  },
   visible: {
-    opacity: 1,
-    // translateY: [-2, 2, 4, 2, -2],
-    // translateX: [-2, 2, 4, 2, -2],
-    // transition: {
-    //   duration: 2,
-    //   ease: "easeInOut",
-    //   times: [0, 0.5, 0.5, 0.5, 1],
-    //   loop: Infinity,
-    // },
+    scale: [1, 0.8, 0.6, 0.8, 1],
+    fillOpacity: [0, 1, 1, 1, 0],
+    translateY: [-2, 2, 4, 2, -2],
+    translateX: [-2, 2, 4, 2, -2],
+    transition: {
+      duration: 2,
+      ease: "easeInOut",
+      times: [0, 0.5, 0.5, 0.5, 1],
+      loop: Infinity,
+    },
   },
 };
 
