@@ -36,7 +36,7 @@ const SocialLink = ({ href, icon, ...props }) => {
 
 const Footer = () => {
   return (
-    <Box mb="16px" display="grid" placeItems="center">
+    <Box as="footer" mb="16px" display="grid" placeItems="center">
       <Stack mb="16px" direction="row" spacing={4}>
         <SocialLink
           href="https://www.linkedin.com/in/greg-ogun/"

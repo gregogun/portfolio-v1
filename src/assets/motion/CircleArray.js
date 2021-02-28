@@ -18,17 +18,17 @@ const groupVariants = {
 };
 
 const child = {
-  hidden: { opacity: [0, 0.2, 0.5, 0.8, 1] },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    translateY: [-2, 2, 4, 2, -2],
-    translateX: [-2, 2, 4, 2, -2],
-    transition: {
-      duration: 2,
-      ease: "easeInOut",
-      times: [0, 0.5, 0.5, 0.5, 1],
-      loop: Infinity,
-    },
+    // translateY: [-2, 2, 4, 2, -2],
+    // translateX: [-2, 2, 4, 2, -2],
+    // transition: {
+    //   duration: 2,
+    //   ease: "easeInOut",
+    //   times: [0, 0.5, 0.5, 0.5, 1],
+    //   loop: Infinity,
+    // },
   },
 };
 
