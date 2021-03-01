@@ -24,11 +24,9 @@ const Skills = forwardRef(({ ...props }, ref) => {
   return (
     <Box as="section" outline="0" ref={ref} tabIndex={-1} {...props}>
       <Box mb="128px">
-        <SectionHeader
-          heading={<Heading2>skills</Heading2>}
-          sibling={<Line />}
-          mr="16px"
-        />
+        <SectionHeader sibling={<Line />} mr="16px">
+          <Heading2>skills</Heading2>
+        </SectionHeader>
       </Box>
       <Text
         pb="1em"

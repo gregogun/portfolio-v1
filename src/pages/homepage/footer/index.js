@@ -18,16 +18,19 @@ import {
 } from "../../../assets/icons/imported/IconSocials";
 import { IconGithub } from "../../../assets/icons";
 
-const SocialLink = ({ href, icon, ...props }) => {
+const SocialLink = ({ name, href, icon, ...props }) => {
   const { colorLight, colorDark } = useColorSwitcher();
   return (
     <Link
-      p=".      5em"
+      as="li"
+      listStyleType="none"
+      p=".5em"
+      aria-label={name}
       {...props}
       href={href}
-      target="_blank"
-      rel="noopener"
-      rel="noreferrer"
+      // target="_blank"
+      // rel="noopener"
+      // rel="noreferrer"
     >
       <Icon as={icon} />
     </Link>
@@ -37,19 +40,33 @@ const SocialLink = ({ href, icon, ...props }) => {
 const Footer = () => {
   return (
     <Box as="footer" mb="16px" display="grid" placeItems="center">
-      <Stack mb="16px" direction="row" spacing={4}>
+      <Stack as="ul" mb="16px" direction="row" spacing={4}>
         <SocialLink
+          name="LinkedIn"
           href="https://www.linkedin.com/in/greg-ogun/"
           icon={IconLinkedin}
         />
-        <SocialLink href="https://github.com/gregogun" icon={IconGithubAlt} />
-        <SocialLink href="https://twitter.com/gregogun" icon={IconTwitter} />
         <SocialLink
+          name="Github"
+          href="https://github.com/gregogun"
+          icon={IconGithubAlt}
+        />
+        <SocialLink
+          name="Twitter"
+          href="https://twitter.com/gregogun"
+          icon={IconTwitter}
+        />
+        <SocialLink
+          name="Youtube"
           href="https://www.youtube.com/channel/UCQDUHOvgodaEqjHm9Ihn87w"
           icon={IconYoutube}
         />
-        <SocialLink href="https://www.twitch.tv/gregogun" icon={IconTwitch} />
-        <SocialLink href="https://dev.to/gregogun" icon={IconDev} />
+        <SocialLink
+          name="Twitch"
+          href="https://www.twitch.tv/gregogun"
+          icon={IconTwitch}
+        />
+        <SocialLink name="Dev" href="https://dev.to/gregogun" icon={IconDev} />
       </Stack>
       <Box display="grid" placeItems="center">
         <Link href="https://github.com/gregogun">

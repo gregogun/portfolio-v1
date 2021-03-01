@@ -12,17 +12,15 @@ import {
 } from "@chakra-ui/react";
 import { FaMoon } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
-import { MenuIcon } from "../../assets/icons";
 import { Logo } from "../../assets/icons";
-import { navigate } from "@reach/router";
-import { PrimaryButton } from "../button";
-import SideNav from "./SideNav";
 import NavMenu from "./NavMenu";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 
 const Navbar = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { colorLight, colorDark } = useColorSwitcher();
+
+  const light = colorMode === "light";
 
   const ThemeIcon = () => (
     <Icon w="28px" h="28px" as={colorMode === "light" ? FaMoon : MdWbSunny} />
@@ -56,15 +54,14 @@ const Navbar = ({ aboutRef, skillsRef, projectsRef, contactRef }) => {
       />
 
       <IconButton
+        aria-label={`Toggle ${light ? "dark" : "light"} mode`}
         w="64px"
         h="64px"
         onClick={toggleColorMode}
         colorScheme={colorLight}
         color={colorDark}
         icon={<ThemeIcon />}
-      >
-        <VisuallyHidden>Toggle light/dark mode</VisuallyHidden>
-      </IconButton>
+      />
     </Flex>
   );
 };

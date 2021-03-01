@@ -30,11 +30,9 @@ const Projects = forwardRef(({ ...props }, ref) => {
       {...props}
     >
       <Box mb="128px">
-        <SectionHeader
-          heading={<Heading2>projects</Heading2>}
-          sibling={<Line />}
-          mr="16px"
-        />
+        <SectionHeader sibling={<Line />} mr="16px">
+          <Heading2>projects</Heading2>
+        </SectionHeader>
       </Box>
       {projects.map((project) => (
         <Stack

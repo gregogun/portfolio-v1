@@ -43,7 +43,7 @@ const NavMenu = ({
   };
 
   return (
-    <Box>
+    <Box as="nav">
       <FullNav handleClick={handleClick} {...props}>
         <NavMenuItem handleClick={handleClick}>about</NavMenuItem>
         <NavMenuItem handleClick={handleClick}>skills</NavMenuItem>
@@ -62,18 +62,19 @@ const NavMenu = ({
 
 const FullNav = ({ handleClick, children, ...props }) => {
   return (
-    <List
+    <Stack
+      as="ul"
       {...props}
+      direction="row"
       display={{ base: "none", lg: "flex" }}
-      justifyContent="space-between"
     >
       {children}
-    </List>
+    </Stack>
   );
 };
 
 const NavMenuItem = ({ handleClick, children, ...props }) => {
-  const { brandColor } = useColorSwitcher();
+  const { secondary } = useColorSwitcher();
 
   const isRef = () => {
     if (children === "about") {
@@ -91,43 +92,41 @@ const NavMenuItem = ({ handleClick, children, ...props }) => {
   };
 
   return (
-    <Stack>
-      <ListItem
-        {...props}
-        p="0.25em"
-        listStyleType="none"
-        fontSize={{ base: "xl", lg: "lg" }}
-        fontWeight="semibold"
-        textAlign="center"
-        transitionDuration="350ms"
-        mx={{ lg: "1.5em" }}
-        display="inline-block"
-        position="relative"
-        _after={{
-          content: '""',
-          position: "absolute",
-          width: { base: "40%", lg: "100%" },
-          transform: "scaleX(0)",
-          height: "2px",
-          bottom: 0,
-          left: { base: "30%", lg: 0 },
-          bg: brandColor,
-          transformOrigin: "bottom right",
-          transition: "transform 0.4s cubic-bezier(0.86, 0, 0.07, 1)",
-        }}
-        _hover={{
-          _after: { transform: "scaleX(1)", transformOrigin: "bottom left" },
-        }}
+    <ListItem
+      {...props}
+      p="0.25em"
+      listStyleType="none"
+      fontSize={{ base: "xl", lg: "lg" }}
+      fontWeight="semibold"
+      textAlign="center"
+      transitionDuration="350ms"
+      mx={{ lg: "1.5em" }}
+      display="inline-block"
+      position="relative"
+      _after={{
+        content: '""',
+        position: "absolute",
+        width: { base: "40%", lg: "100%" },
+        transform: "scaleX(0)",
+        height: "2px",
+        bottom: 0,
+        left: { base: "30%", lg: 0 },
+        bg: secondary,
+        transformOrigin: "bottom right",
+        transition: "transform 0.4s cubic-bezier(0.86, 0, 0.07, 1)",
+      }}
+      _hover={{
+        _after: { transform: "scaleX(1)", transformOrigin: "bottom left" },
+      }}
+    >
+      <Link
+        _hover={{ color: secondary, textDecoration: "none" }}
+        onClick={() => handleClick(children)}
+        href={`#${children}`}
       >
-        <Link
-          _hover={{ color: brandColor, textDecoration: "none" }}
-          onClick={() => handleClick(children)}
-          href={`#${children}`}
-        >
-          {children}
-        </Link>
-      </ListItem>
-    </Stack>
+        {children}
+      </Link>
+    </ListItem>
   );
 };
 

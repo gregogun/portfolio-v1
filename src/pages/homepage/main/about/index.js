@@ -12,11 +12,9 @@ const About = forwardRef(({ ...props }, ref) => {
   return (
     <Box as="section" outline="0" ref={ref} tabIndex={-1} {...props} w="100%">
       <Box w="100%" mb={{ base: "32px", md: "64px", xl: "128px" }}>
-        <SectionHeader
-          heading={<Heading2>about</Heading2>}
-          sibling={<Line />}
-          mr="16px"
-        />
+        <SectionHeader sibling={<Line />} mr="16px">
+          <Heading2>about</Heading2>
+        </SectionHeader>
       </Box>
       <Stack
         align="center"

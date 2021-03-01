@@ -16,11 +16,9 @@ const Contact = forwardRef(({ ...props }, ref) => {
   return (
     <Box outline="0" ref={ref} tabIndex={-1} {...props} as="section">
       <Box mb="128px">
-        <SectionHeader
-          heading={<Heading2>contact</Heading2>}
-          sibling={<Line />}
-          mr="16px"
-        />
+        <SectionHeader sibling={<Line />} mr="16px">
+          <Heading2>contact</Heading2>
+        </SectionHeader>
       </Box>
       <Box
         mx="auto"

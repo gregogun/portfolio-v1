@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, useColorModeValue, Center, Stack } from "@chakra-ui/react";
+import { Box, Text, Center, Stack } from "@chakra-ui/react";
 import { PrimaryButton } from "../../../../components/button";
 import { Body, Heading1, Heading3 } from "../../../../components/typography";
 import Arrow from "../../../../assets/icons/custom/Arrow";
@@ -49,7 +49,7 @@ const Hero = ({ handleClick, ...props }) => {
   return (
     <Box {...props}>
       <Stack
-        spacing={{ base: 32, sm: 24, md: 64, lg: 80, xl: 32 }}
+        spacing={{ base: 32, sm: 24, md: 64, lg: 80, xl: 8, xxl: 32 }}
         direction={{ base: "column", xl: "row" }}
         pb={{ xl: "1em", xxl: "10em" }}
         as="section"
@@ -57,16 +57,7 @@ const Hero = ({ handleClick, ...props }) => {
         position="relative"
       >
         <HeroText order={-2} handleClick={handleClick} />
-        <Box
-          opacity={scrollPos ? 0 : 1}
-          transition="visibility 0s linear 300ms, opacity 600ms"
-          visibility={scrollPos ? "hidden" : "visible"}
-          position={{ xl: "absolute" }}
-          bottom={{ xl: "16px", xxl: "8px" }}
-          left={{ xl: "45%" }}
-        >
-          <Arrow size="8px" />
-        </Box>
+        <FloatingArrow scrollPos={scrollPos} />
         <Center
           //border="2px solid"
           rounded="full"
@@ -75,7 +66,7 @@ const Hero = ({ handleClick, ...props }) => {
           //p="2em"
         >
           <CircleArray
-            strokeWidth="1px"
+            strokeWidth="0.5px"
             fill={secondary}
             stroke={secondary}
             boxSize={{ base: "15em", md: "22em" }}
@@ -118,6 +109,21 @@ const HeroText = ({ handleClick, ...props }) => {
           GET IN TOUCH
         </PrimaryButton>
       </Box>
+    </Box>
+  );
+};
+
+const FloatingArrow = ({ scrollPos }) => {
+  return (
+    <Box
+      opacity={scrollPos ? 0 : 1}
+      transition="visibility 0s linear 300ms, opacity 600ms"
+      visibility={scrollPos ? "hidden" : "visible"}
+      position={{ xl: "absolute" }}
+      bottom={{ xl: "16px", xxl: "8px" }}
+      left={{ xl: "45%" }}
+    >
+      <Arrow size="8px" />
     </Box>
   );
 };

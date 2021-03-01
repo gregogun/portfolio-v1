@@ -16,7 +16,7 @@ const SectionHeader = ({
       justify={sibling && "space-between"}
       align="center"
     >
-      {heading && heading}
+      {children}
       {sibling && <Sibling />}
     </Flex>
   );
