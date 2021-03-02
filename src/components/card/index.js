@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 import { PrimaryButton, SecondaryButton } from "../button";
-import { Body, Heading3 } from "../typography";
+import { Body, Bullet, Heading3 } from "../typography";
 import { BiRightArrow } from "react-icons/bi";
 import SpherePulse from "../../assets/motion/SpherePulse";
 
@@ -80,12 +80,7 @@ export const ProjectInfoCard = ({
           <Stack spacing={8} as="ul">
             {info.map((item, index) => (
               <Stack spacing={3} direction="row" as="li" key={index}>
-                <Box>
-                  <SpherePulse
-                    position="relative"
-                    top={{ base: "6px", md: "7px", lg: "8px" }}
-                  />
-                </Box>
+                <Bullet />
                 <Body>{item}</Body>
               </Stack>
             ))}

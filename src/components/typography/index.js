@@ -1,5 +1,6 @@
-import { Heading, Text, Flex } from "@chakra-ui/react";
+import { Heading, Text, Flex, Stack, Box } from "@chakra-ui/react";
 import React from "react";
+import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 
 export const Heading1 = ({ children, ...props }) => {
   return (
@@ -69,5 +70,21 @@ export const Body = ({ children, ...props }) => {
     <Text {...props} fontSize={{ base: "xs", sm: "sm", md: "md", xl: "lg" }}>
       {children}
     </Text>
+  );
+};
+
+export const Bullet = ({ children, ...props }) => {
+  const { secondary } = useColorSwitcher();
+  return (
+    <Stack {...props} spacing={3} direction="row">
+      <Box
+        background={secondary}
+        boxSize={{ base: "6px", md: "10px", lg: "12px" }}
+        rounded="full"
+        position="relative"
+        top={{ base: "6px", md: "7px", lg: "8px" }}
+      />
+      {children && <Body>{children}</Body>}
+    </Stack>
   );
 };

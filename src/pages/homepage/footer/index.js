@@ -21,19 +21,20 @@ import { IconGithub } from "../../../assets/icons";
 const SocialLink = ({ name, href, icon, ...props }) => {
   const { colorLight, colorDark } = useColorSwitcher();
   return (
-    <Link
-      as="li"
-      listStyleType="none"
-      p=".5em"
-      aria-label={name}
-      {...props}
-      href={href}
-      // target="_blank"
-      // rel="noopener"
-      // rel="noreferrer"
-    >
-      <Icon as={icon} />
-    </Link>
+    <Box as="li" listStyleType="none">
+      <Link
+        listStyleType="none"
+        p=".5em"
+        aria-label={name}
+        {...props}
+        href={href}
+        // target="_blank"
+        // rel="noopener"
+        // rel="noreferrer"
+      >
+        <Icon as={icon} />
+      </Link>
+    </Box>
   );
 };
 

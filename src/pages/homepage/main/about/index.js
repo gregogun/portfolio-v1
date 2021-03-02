@@ -3,7 +3,12 @@ import React, { forwardRef, useEffect } from "react";
 import { ImageProfile } from "../../../../assets/images";
 import SpherePulse from "../../../../assets/motion/SpherePulse";
 import { Line, SectionHeader } from "../../../../components/layout";
-import { Body, Heading2, Heading3 } from "../../../../components/typography";
+import {
+  Body,
+  Bullet,
+  Heading2,
+  Heading3,
+} from "../../../../components/typography";
 
 const About = forwardRef(({ ...props }, ref) => {
   const greyBg = useColorModeValue("neutral.300", "neutral.500");
@@ -51,11 +56,11 @@ const About = forwardRef(({ ...props }, ref) => {
           <Box>
             <Heading3>What I've been up to:</Heading3>
             <Stack as="ul">
-              <Bullet>Building this!</Bullet>
-              <Bullet>Getting deeper into React and Nodejs</Bullet>
-              <Bullet>Learning GraphQL</Bullet>
-              <Bullet>Starting my podcast show and blogging</Bullet>
-              <Bullet>Preparing for the Chingu Voyage 28!</Bullet>
+              <Bullet as="li">Building this!</Bullet>
+              <Bullet as="li">Getting deeper into React and Nodejs</Bullet>
+              <Bullet as="li">Learning GraphQL</Bullet>
+              <Bullet as="li">Starting my podcast show and blogging</Bullet>
+              <Bullet as="li">Preparing for the Chingu Voyage 28!</Bullet>
             </Stack>
           </Box>
         </Stack>
@@ -63,19 +68,5 @@ const About = forwardRef(({ ...props }, ref) => {
     </Box>
   );
 });
-
-const Bullet = ({ children }) => {
-  return (
-    <Stack spacing={3} direction="row" as="li">
-      <Box>
-        <SpherePulse
-          position="relative"
-          top={{ base: "6px", md: "7px", lg: "8px" }}
-        />
-      </Box>
-      <Body>{children}</Body>
-    </Stack>
-  );
-};
 
 export default About;
