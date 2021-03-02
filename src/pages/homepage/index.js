@@ -15,7 +15,6 @@ const Homepage = () => {
       <PrimaryButton
         as="a"
         href="#about"
-        //left="50%"
         position="absolute"
         transform="translateX(-100%)"
         transition="transform 0.3s"

@@ -5,14 +5,17 @@ import SpherePulse from "../../../../assets/motion/SpherePulse";
 import { Line, SectionHeader } from "../../../../components/layout";
 import {
   Body,
+  BodyLink,
   Bullet,
   Heading2,
   Heading3,
 } from "../../../../components/typography";
+import useColorSwitcher from "../../../../utils/hooks/useColorSwitcher";
 
 const About = forwardRef(({ ...props }, ref) => {
   const greyBg = useColorModeValue("neutral.300", "neutral.500");
   const lightGreyBg = useColorModeValue("neutral.100", "neutral.700");
+  const { secondary } = useColorSwitcher();
 
   return (
     <Box as="section" outline="0" ref={ref} tabIndex={-1} {...props} w="100%">
@@ -59,8 +62,26 @@ const About = forwardRef(({ ...props }, ref) => {
               <Bullet as="li">Building this!</Bullet>
               <Bullet as="li">Getting deeper into React and Nodejs</Bullet>
               <Bullet as="li">Learning GraphQL</Bullet>
-              <Bullet as="li">Starting my podcast show and blogging</Bullet>
-              <Bullet as="li">Preparing for the Chingu Voyage 28!</Bullet>
+              <Bullet as="li">
+                Live Coding on{" "}
+                <Link
+                  color={secondary}
+                  textDecor="underline"
+                  href="https://www.twitch.tv/gregogun"
+                >
+                  Twitch
+                </Link>
+              </Bullet>
+              <Bullet as="li">
+                Starting the{" "}
+                <Link
+                  color={secondary}
+                  textDecor="underline"
+                  href="https://chingu.io/"
+                >
+                  Chingu Voyage 28
+                </Link>
+              </Bullet>
             </Stack>
           </Box>
         </Stack>

@@ -1,5 +1,6 @@
 import { Heading, Text, Flex, Stack, Box } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-scroll";
 import useColorSwitcher from "../../utils/hooks/useColorSwitcher";
 
 export const Heading1 = ({ children, ...props }) => {
@@ -33,9 +34,9 @@ export const TextLarge = ({ color, children, ...props }) => {
     <Text
       {...props}
       color={color}
-      fontFamily="Roboto Mono, sans-serif"
-      fontSize={{ base: "2em", md: "3em" }}
-      fontWeight="bold"
+      //fontFamily="Roboto Mono, sans-serif"
+      fontSize={{ base: "0.85em", md: "1.25em" }}
+      //fontWeight="bold"
     >
       {children}
     </Text>
@@ -86,5 +87,14 @@ export const Bullet = ({ children, ...props }) => {
       />
       {children && <Body>{children}</Body>}
     </Stack>
+  );
+};
+
+export const BodyLink = ({ href, children, ...props }) => {
+  const { secondary } = useColorSwitcher();
+  return (
+    <Link text {...props} color={secondary} href={href}>
+      {children}
+    </Link>
   );
 };
