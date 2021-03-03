@@ -68,7 +68,11 @@ export const Heading3 = ({ big = false, color, children, ...props }) => {
 
 export const Body = ({ children, ...props }) => {
   return (
-    <Text {...props} fontSize={{ base: "xs", sm: "sm", md: "md", xl: "lg" }}>
+    <Text
+      {...props}
+      //fontSize={{ base: "xs", sm: "sm", md: "md", xl: "lg" }}
+      fontSize={{ base: "md", sm: "md", xl: "lg" }}
+    >
       {children}
     </Text>
   );
