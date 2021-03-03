@@ -10,6 +10,4 @@ const portfolio = {
   dark: [lgD, mdD, smD],
 };
 
-console.log(portfolio);
-
 export default portfolio;
